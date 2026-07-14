@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { getDefaultMetadata, getAllSchemas } from "@/lib/seo";
-import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider";
-import { CursorGlow } from "@/components/providers/cursor-glow";
 import "./globals.css";
 
 const inter = Inter({
@@ -17,16 +15,22 @@ const siteDescription = metadataConfig.description;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://artistnation.in"),
+  applicationName: metadataConfig.applicationName,
   title: {
     default: metadataConfig.title,
     template: "%s | Artist Nation",
   },
   description: metadataConfig.description,
   keywords: metadataConfig.keywords,
+  authors: metadataConfig.authors,
+  creator: metadataConfig.creator,
+  publisher: metadataConfig.publisher,
   openGraph: metadataConfig.openGraph,
   twitter: metadataConfig.twitter,
   alternates: metadataConfig.alternates,
   robots: metadataConfig.robots,
+  icons: metadataConfig.icons,
+  manifest: metadataConfig.manifest,
   verification: {},
   category: "Event Management",
 };
@@ -62,10 +66,7 @@ export default function RootLayout({
         ))}
       </head>
       <body className="bg-black text-white antialiased">
-        <SmoothScrollProvider>
-          <CursorGlow />
-          {children}
-        </SmoothScrollProvider>
+        {children}
       </body>
     </html>
   );

@@ -1,11 +1,11 @@
-"use client";
-
-import { motion } from "framer-motion";
+import Image from "next/image";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 import { LogoCloud } from "@/components/ui/logo-cloud-2";
 
-const aboutVideo = "https://cdn.pixabay.com/video/2022/10/08/134016-758543909_large.mp4";
+const aboutVideoMobile = "/media/artist-about-mobile.mp4";
+const aboutVideoDesktop = "/media/artist-about-desktop.mp4";
+const aboutPoster = "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1600&q=80";
 
 const metrics = [
   {
@@ -43,37 +43,36 @@ export function AboutSection() {
       className="relative min-h-[100svh] w-full scroll-mt-20 overflow-hidden bg-black"
       aria-labelledby="about-heading"
     >
-      <motion.div
-        initial={{ scale: 1.08, opacity: 0 }}
-        whileInView={{ scale: 1, opacity: 1 }}
-        viewport={{ once: true, margin: "-120px" }}
-        transition={{ duration: 1.35, ease: [0.25, 0.4, 0.25, 1] }}
-        className="absolute inset-0"
-        aria-hidden="true"
-      >
+      <div className="absolute inset-0" aria-hidden="true">
+        <Image
+          src={aboutPoster}
+          alt=""
+          fill
+          quality={62}
+          sizes="100vw"
+          className="kinetic-media h-full w-full object-cover object-[58%_center] md:object-center"
+        />
         <video
-          className="h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover"
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
         >
-          <source src={aboutVideo} type="video/mp4" />
+          <source media="(max-width: 767px)" src={aboutVideoMobile} type="video/mp4" />
+          <source media="(min-width: 768px)" src={aboutVideoDesktop} type="video/mp4" />
         </video>
-      </motion.div>
+        <div className="cinematic-sweep absolute inset-0" />
+        <div className="cinematic-grain absolute inset-0" />
+      </div>
 
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.92)_0%,rgba(0,0,0,0.68)_42%,rgba(0,0,0,0.22)_100%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.52)_0%,rgba(0,0,0,0.08)_42%,rgba(0,0,0,0.82)_100%)]" />
 
       <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-between px-4 py-20 sm:px-6 md:py-24 lg:px-16">
         <div className="grid flex-1 items-center gap-8 lg:grid-cols-[0.92fr_0.78fr] lg:gap-10">
-          <motion.div
-            initial={{ opacity: 0, y: 48 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.85, ease: [0.25, 0.4, 0.25, 1] }}
-          >
+          <div className="reveal-soft">
             <p className="mb-4 text-[0.68rem] uppercase tracking-[0.24em] text-gold sm:text-xs sm:tracking-[0.3em]">
               About Artist Nation
             </p>
@@ -88,28 +87,22 @@ export function AboutSection() {
 
             <div className="mt-6 grid gap-3 md:mt-8">
               {craftNotes.map((note, index) => (
-                <motion.div
+                <div
                   key={note}
-                  initial={{ opacity: 0, x: -24 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.55, delay: 0.15 + index * 0.08 }}
                   className="flex items-start gap-3 text-xs leading-relaxed text-white/75 sm:text-sm"
+                  style={{ animationDelay: `${160 + index * 80}ms` }}
                 >
                   <CheckCircle2 className="mt-0.5 shrink-0 text-gold" size={16} />
                   <span>{note}</span>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
-          <motion.aside
-            initial={{ opacity: 0, x: 36 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.85, delay: 0.15, ease: [0.25, 0.4, 0.25, 1] }}
-            className="liquid-glass max-w-xl rounded-2xl p-4 sm:p-6 md:p-8 lg:ml-auto"
+          <aside
+            className="liquid-glass relative max-w-xl rounded-2xl p-4 sm:p-6 md:p-8 lg:ml-auto"
           >
+            <div className="absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-gold/70 to-transparent" aria-hidden="true" />
             <p className="text-[0.68rem] uppercase tracking-[0.22em] text-gold sm:text-xs sm:tracking-[0.28em]">
               Live Direction System
             </p>
@@ -118,9 +111,9 @@ export function AboutSection() {
             </p>
             <div className="mt-5 h-px bg-white/10 md:mt-6" />
             <div className="mt-5 grid gap-3 text-xs leading-relaxed text-white/60 sm:text-sm md:mt-6 md:gap-4">
-              <p>01. Map the moment and the audience journey.</p>
-              <p>02. Build production, talent, hospitality, and content flows.</p>
-              <p>03. Conduct the live show so the brand feels inevitable.</p>
+              <p><span className="text-gold">01.</span> Map the moment and the audience journey.</p>
+              <p><span className="text-gold">02.</span> Build production, talent, hospitality, and content flows.</p>
+              <p><span className="text-gold">03.</span> Conduct the live show so the brand feels inevitable.</p>
             </div>
             <a
               href="#contact"
@@ -129,18 +122,12 @@ export function AboutSection() {
               Get Early Access
               <ArrowRight size={16} />
             </a>
-          </motion.aside>
+          </aside>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 36 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.75, delay: 0.2 }}
-          className="mt-8 md:mt-10"
-        >
+        <div className="mt-8 md:mt-10">
           <LogoCloud items={metrics} className="rounded-2xl border-white/10 bg-black/35 backdrop-blur-sm sm:rounded-3xl" />
-        </motion.div>
+        </div>
       </div>
     </section>
   );

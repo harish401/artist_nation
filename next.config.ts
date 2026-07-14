@@ -45,6 +45,24 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        source: "/media/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/:path(favicon.ico|favicon.svg|favicon-48x48.png|favicon-96x96.png|apple-touch-icon.png|icon-192.png|icon-512.png|site.webmanifest)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400",
+          },
+        ],
+      },
     ];
   },
 };

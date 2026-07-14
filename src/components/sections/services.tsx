@@ -1,13 +1,10 @@
-"use client";
-
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { services, type Service } from "@/lib/data/services";
 import { SITE_CONFIG } from "@/lib/constants";
 import { cn } from "@/lib/utils";
-import { ScrollReveal } from "@/components/animations";
 import { BentoGridShowcase } from "@/components/ui/bento-product-features";
+import { InView } from "@/components/ui/in-view";
 
 const [
   corporateEvents,
@@ -18,6 +15,35 @@ const [
   conferences,
   teamOutings,
 ] = services;
+
+const sectionReveal = {
+  hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+};
+
+const serviceReveal = {
+  hidden: { opacity: 0, y: 36, scale: 0.96, filter: "blur(12px)" },
+  visible: { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" },
+};
+
+function ServiceInView({
+  children,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+}) {
+  return (
+    <InView
+      className="h-full"
+      variants={serviceReveal}
+      transition={{ duration: 0.75, delay, ease: [0.25, 0.1, 0.25, 1] }}
+      viewOptions={{ once: true, margin: "0px 0px -160px 0px" }}
+    >
+      {children}
+    </InView>
+  );
+}
 
 function ServiceFeatureCard({
   service,
@@ -34,7 +60,7 @@ function ServiceFeatureCard({
   return (
     <article
       className={cn(
-        "liquid-glass group relative h-full min-h-[190px] overflow-hidden rounded-xl border border-white/10 sm:rounded-2xl",
+        "service-transition-card liquid-glass group relative h-full min-h-[190px] overflow-hidden rounded-xl border border-white/10 sm:rounded-2xl",
         isFeature ? "min-h-[360px] sm:min-h-[420px] md:min-h-[620px]" : "sm:min-h-[210px] md:min-h-[220px]"
       )}
     >
@@ -88,7 +114,7 @@ function ServiceFeatureCard({
 
 function ServiceStatisticCard() {
   return (
-    <article className="liquid-glass relative flex h-full min-h-[180px] overflow-hidden rounded-xl border border-white/10 p-4 sm:min-h-[200px] sm:rounded-2xl sm:p-5 md:min-h-[220px] md:p-6">
+    <article className="service-transition-card liquid-glass relative flex h-full min-h-[180px] overflow-hidden rounded-xl border border-white/10 p-4 sm:min-h-[200px] sm:rounded-2xl sm:p-5 md:min-h-[220px] md:p-6">
       <div
         className="absolute inset-0 opacity-25"
         style={{
@@ -115,7 +141,7 @@ function OperationsCard({ primary, secondary }: { primary: Service; secondary: S
   const SecondaryIcon = secondary.icon;
 
   return (
-    <article className="liquid-glass relative h-full min-h-[190px] overflow-hidden rounded-xl border border-white/10 p-4 sm:rounded-2xl sm:p-5 md:min-h-[220px] md:p-7">
+    <article className="service-transition-card liquid-glass relative h-full min-h-[190px] overflow-hidden rounded-xl border border-white/10 p-4 sm:rounded-2xl sm:p-5 md:min-h-[220px] md:p-7">
       <div className="relative z-10 flex h-full flex-col gap-4 md:flex-row md:items-center md:justify-between md:gap-6">
         <div className="max-w-xl">
           <p className="mb-3 text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-gold/80">
@@ -157,37 +183,67 @@ function OperationsCard({ primary, secondary }: { primary: Service; secondary: S
 export function ServicesSection() {
   return (
     <section id="services" className="section-padding min-h-[100svh] scroll-mt-20" aria-labelledby="services-heading">
-      <ScrollReveal className="mx-auto mb-10 max-w-7xl text-center sm:mb-14 md:mb-20">
-        <p className="mb-4 text-[0.68rem] uppercase tracking-[0.24em] text-gold sm:text-xs sm:tracking-[0.3em]">Our Services</p>
-        <h2 id="services-heading" className="heading-display text-3xl md:text-5xl lg:text-6xl">
-          Premium <span className="gold-gradient">Event Solutions</span>
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-white/60 sm:text-base md:mt-6 md:text-lg">
-          Full-spectrum event management for corporate, entertainment, and luxury experiences.
-        </p>
-      </ScrollReveal>
+      <InView
+        variants={sectionReveal}
+        transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+        viewOptions={{ once: true, margin: "0px 0px -120px 0px" }}
+      >
+        <div className="mx-auto mb-10 max-w-7xl text-center sm:mb-14 md:mb-20">
+          <p className="mb-4 text-[0.68rem] uppercase tracking-[0.24em] text-gold sm:text-xs sm:tracking-[0.3em]">Our Services</p>
+          <h2 id="services-heading" className="heading-display text-3xl md:text-5xl lg:text-6xl">
+            Premium <span className="gold-gradient">Event Solutions</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-white/60 sm:text-base md:mt-6 md:text-lg">
+            Full-spectrum event management for corporate, entertainment, and luxury experiences.
+          </p>
+        </div>
+      </InView>
 
       <BentoGridShowcase
         className="mx-auto max-w-7xl md:auto-rows-[220px]"
-        integration={<ServiceFeatureCard service={corporateEvents} eyebrow="Signature Production" variant="feature" />}
-        trackers={<ServiceFeatureCard service={productLaunch} eyebrow="Launch Theatre" />}
-        statistic={<ServiceStatisticCard />}
-        focus={<ServiceFeatureCard service={moviePromotions} eyebrow="Audience Momentum" />}
-        productivity={<ServiceFeatureCard service={brandActivation} eyebrow="Experiential Reach" />}
-        shortcuts={<OperationsCard primary={conferences} secondary={teamOutings} />}
+        integration={(
+          <ServiceInView delay={0.02}>
+            <ServiceFeatureCard service={corporateEvents} eyebrow="Signature Production" variant="feature" />
+          </ServiceInView>
+        )}
+        trackers={(
+          <ServiceInView delay={0.08}>
+            <ServiceFeatureCard service={productLaunch} eyebrow="Launch Theatre" />
+          </ServiceInView>
+        )}
+        statistic={(
+          <ServiceInView delay={0.14}>
+            <ServiceStatisticCard />
+          </ServiceInView>
+        )}
+        focus={(
+          <ServiceInView delay={0.18}>
+            <ServiceFeatureCard service={moviePromotions} eyebrow="Audience Momentum" />
+          </ServiceInView>
+        )}
+        productivity={(
+          <ServiceInView delay={0.22}>
+            <ServiceFeatureCard service={brandActivation} eyebrow="Experiential Reach" />
+          </ServiceInView>
+        )}
+        shortcuts={(
+          <ServiceInView delay={0.28}>
+            <OperationsCard primary={conferences} secondary={teamOutings} />
+          </ServiceInView>
+        )}
       />
 
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.7, delay: 0.2 }}
-        className="mx-auto mt-5 flex max-w-7xl flex-wrap items-center justify-center gap-2 text-center text-xs text-white/45 sm:gap-3 sm:text-sm"
+      <InView
+        variants={sectionReveal}
+        transition={{ duration: 0.7, delay: 0.18, ease: [0.25, 0.1, 0.25, 1] }}
+        viewOptions={{ once: true, margin: "0px 0px -120px 0px" }}
       >
-        <span>Also handling {celebrityManagement.title.toLowerCase()}</span>
-        <span className="hidden h-1 w-1 rounded-full bg-gold/60 sm:inline-block" aria-hidden="true" />
-        <span>{SITE_CONFIG.stats.artists}+ artist and celebrity relationships</span>
-      </motion.div>
+        <div className="mx-auto mt-5 flex max-w-7xl flex-wrap items-center justify-center gap-2 text-center text-xs text-white/45 sm:gap-3 sm:text-sm">
+          <span>Also handling {celebrityManagement.title.toLowerCase()}</span>
+          <span className="hidden h-1 w-1 rounded-full bg-gold/60 sm:inline-block" aria-hidden="true" />
+          <span>{SITE_CONFIG.stats.artists}+ artist and celebrity relationships</span>
+        </div>
+      </InView>
     </section>
   );
 }
