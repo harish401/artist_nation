@@ -1,0 +1,15 @@
+export { HeroSection } from "./hero";
+export { TrustedBySection } from "./trusted-by";
+export { AboutSection } from "./about";
+export { ServicesSection } from "./services";
+export { ShowcaseSection } from "./showcase";
+export { TimelineSection } from "./timeline";
+export { WhyChooseUsSection } from "./why-choose-us";
+export { TestimonialsSection } from "./testimonials";
+export { MoviePromotionsSection } from "./movie-promotions";
+export { ProductLaunchSection } from "./product-launch";
+export { CorporateEventsSection } from "./corporate-events";
+export { OutingsSection } from "./outings";
+export { GallerySection } from "./gallery";
+export { ProcessSection } from "./process";
+export { CTASection } from "./cta";
