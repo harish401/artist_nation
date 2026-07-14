@@ -59,7 +59,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-[100svh] w-full flex-col overflow-hidden bg-black md:min-h-[720px]"
+      className="relative flex min-h-[100dvh] w-full flex-col overflow-hidden bg-black md:min-h-[720px]"
       aria-label="Hero — Artist Nation Event Management"
     >
       <Image
@@ -92,7 +92,7 @@ export function HeroSection() {
       <div className="absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(0,0,0,0.44)_0%,rgba(0,0,0,0.18)_38%,rgba(0,0,0,0.74)_100%)]" />
       <div className="absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(0,0,0,0.72)_0%,rgba(0,0,0,0.24)_58%,rgba(0,0,0,0.64)_100%)]" />
 
-      <div className="relative z-10 flex min-h-[100svh] flex-col px-4 pb-10 pt-28 sm:px-6 sm:pt-32 md:px-12 md:pt-36 lg:px-16 lg:pt-40">
+      <div className="relative z-10 flex min-h-[100dvh] flex-col px-4 pb-10 pt-28 sm:px-6 sm:pt-32 md:px-12 md:pt-36 lg:px-16 lg:pt-40">
         <div className="flex flex-1 flex-col justify-center pb-6 sm:pb-8 lg:translate-y-6 lg:pb-12">
           <div className="grid gap-6 lg:grid-cols-2 lg:items-end lg:gap-8">
             <div>
@@ -135,6 +135,16 @@ export function HeroSection() {
             </FadeIn>
           </div>
         </div>
+      </div>
+
+      <div
+        className="paper-scroll-cue pointer-events-none absolute bottom-6 left-1/2 z-20 hidden -translate-x-1/2 items-center gap-3 text-[0.62rem] font-medium uppercase tracking-[0.34em] text-white/55 md:flex"
+        aria-hidden="true"
+      >
+        <span>Scroll</span>
+        <span className="relative h-11 w-px overflow-hidden rounded-full bg-white/15">
+          <span className="animate-scroll-down absolute left-0 top-0 h-5 w-px rounded-full bg-gold" />
+        </span>
       </div>
     </section>
   );

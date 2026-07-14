@@ -50,10 +50,10 @@ export function AboutSection() {
           fill
           quality={62}
           sizes="100vw"
-          className="kinetic-media h-full w-full object-cover object-[58%_center] md:object-center"
+          className="about-media h-full w-full object-cover object-[58%_center] md:object-center"
         />
         <video
-          className="absolute inset-0 h-full w-full object-cover"
+          className="about-media absolute inset-0 h-full w-full object-cover"
           autoPlay
           muted
           loop

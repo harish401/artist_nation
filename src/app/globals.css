@@ -65,7 +65,8 @@ body {
     scroll-snap-type: y proximity;
   }
 
-  main > section {
+  main > section,
+  .section-paper-stack > .paper-panel {
     scroll-snap-align: start;
   }
 }
@@ -73,6 +74,132 @@ body {
 ::selection {
   background: var(--gold);
   color: var(--background);
+}
+
+/* ─── Full page paper transitions ───────────────────────────────── */
+.section-paper-stack {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  background: #000000;
+}
+
+.paper-panel {
+  position: relative;
+  min-height: 100svh;
+  background: #000000;
+  transform: translateZ(0);
+}
+
+.paper-panel > section {
+  min-height: 100svh;
+}
+
+@supports (height: 100dvh) {
+  .paper-panel,
+  .paper-panel > section {
+    min-height: 100dvh;
+  }
+}
+
+.paper-panel-hero {
+  z-index: 1;
+}
+
+.paper-panel:not(.paper-panel-hero) {
+  overflow: hidden;
+  border-radius: 28px 28px 0 0;
+  box-shadow: 0 -22px 72px rgba(0, 0, 0, 0.58);
+}
+
+.paper-panel-about {
+  z-index: 2;
+}
+
+.paper-panel-cta {
+  z-index: 5;
+}
+
+.paper-panel:not(.paper-panel-hero)::before,
+.paper-panel:not(.paper-panel-hero)::after {
+  position: absolute;
+  pointer-events: none;
+  content: '';
+}
+
+.paper-panel:not(.paper-panel-hero)::before {
+  inset: 0;
+  z-index: 5;
+  height: 18svh;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.13), transparent 58%);
+  mix-blend-mode: screen;
+  opacity: 0.55;
+}
+
+.paper-panel:not(.paper-panel-hero)::after {
+  top: 0;
+  right: clamp(1rem, 5vw, 4rem);
+  left: clamp(1rem, 5vw, 4rem);
+  z-index: 6;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(232, 213, 163, 0.72), rgba(255, 255, 255, 0.35), transparent);
+}
+
+.paper-scroll-cue {
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.85);
+}
+
+.about-media {
+  transform: scale(1.01);
+}
+
+@media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+  .paper-panel {
+    position: sticky;
+    top: 0;
+  }
+
+  .paper-panel:not(.paper-panel-hero) {
+    border-radius: 22px 22px 0 0;
+  }
+
+  .paper-panel:not(.paper-panel-hero) {
+    box-shadow: 0 -18px 54px rgba(0, 0, 0, 0.55), 0 -1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .about-media {
+    animation: none;
+    filter: none;
+    transform: scale(1);
+  }
+}
+
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .paper-panel {
+    position: sticky;
+    top: 0;
+  }
+
+  .paper-panel:not(.paper-panel-hero) {
+    border-radius: clamp(28px, 4vw, 56px) clamp(28px, 4vw, 56px) 0 0;
+    box-shadow: 0 -34px 110px rgba(0, 0, 0, 0.68), 0 -1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .about-media {
+    animation: kinetic-media 18s ease-in-out infinite alternate;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+    .paper-panel-about,
+    .paper-panel-cta {
+      animation: mobile-paper-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 58%;
+      transform-origin: top center;
+    }
+  }
 }
 
 /* ─── Legacy glass (kept for fallback) ──────────────────────────── */
@@ -400,6 +527,38 @@ body {
   33% { rotate: 2deg; }
   66% { rotate: -2deg; }
   100% { rotate: 1deg; }
+}
+
+@keyframes scroll-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-120%);
+  }
+  28% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(230%);
+  }
+}
+
+.animate-scroll-down {
+  animation: scroll-down 1.85s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes mobile-paper-rise {
+  0% {
+    opacity: 0.96;
+    transform: translate3d(0, 18px, 0) scale(0.996);
+  }
+  65% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
 }
 
 @keyframes css-fade-in {

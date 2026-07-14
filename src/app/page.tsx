@@ -14,12 +14,18 @@ export default function Home() {
   return (
     <>
       <Navigation />
-      <main className="bg-black">
-        <HeroSection />
-        <AboutSection />
+      <main className="section-paper-stack bg-black">
+        <div className="paper-panel paper-panel-hero">
+          <HeroSection />
+        </div>
+        <div className="paper-panel paper-panel-about">
+          <AboutSection />
+        </div>
         <ServicesSection />
         <GallerySection />
-        <CTASection />
+        <div className="paper-panel paper-panel-cta">
+          <CTASection />
+        </div>
       </main>
       <Footer />
     </>

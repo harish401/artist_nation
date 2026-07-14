@@ -17,13 +17,18 @@ const [
 ] = services;
 
 const sectionReveal = {
-  hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+  hidden: { opacity: 0, x: 120 },
+  visible: { opacity: 1, x: 0 },
+};
+
+const stageReveal = {
+  hidden: { opacity: 0.22, x: 220, scale: 0.985 },
+  visible: { opacity: 1, x: 0, scale: 1 },
 };
 
 const serviceReveal = {
-  hidden: { opacity: 0, y: 36, scale: 0.96, filter: "blur(12px)" },
-  visible: { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" },
+  hidden: { opacity: 0, x: 130, scale: 0.985 },
+  visible: { opacity: 1, x: 0, scale: 1 },
 };
 
 function ServiceInView({
@@ -37,7 +42,7 @@ function ServiceInView({
     <InView
       className="h-full"
       variants={serviceReveal}
-      transition={{ duration: 0.75, delay, ease: [0.25, 0.1, 0.25, 1] }}
+      transition={{ duration: 0.82, delay, ease: [0.16, 1, 0.3, 1] }}
       viewOptions={{ once: true, margin: "0px 0px -160px 0px" }}
     >
       {children}
@@ -182,10 +187,14 @@ function OperationsCard({ primary, secondary }: { primary: Service; secondary: S
 
 export function ServicesSection() {
   return (
-    <section id="services" className="section-padding min-h-[100svh] scroll-mt-20" aria-labelledby="services-heading">
+    <section
+      id="services"
+      className="section-padding relative z-[3] min-h-[100svh] scroll-mt-20 bg-black"
+      aria-labelledby="services-heading"
+    >
       <InView
         variants={sectionReveal}
-        transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+        transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
         viewOptions={{ once: true, margin: "0px 0px -120px 0px" }}
       >
         <div className="mx-auto mb-10 max-w-7xl text-center sm:mb-14 md:mb-20">
@@ -199,43 +208,49 @@ export function ServicesSection() {
         </div>
       </InView>
 
-      <BentoGridShowcase
-        className="mx-auto max-w-7xl md:auto-rows-[220px]"
-        integration={(
-          <ServiceInView delay={0.02}>
-            <ServiceFeatureCard service={corporateEvents} eyebrow="Signature Production" variant="feature" />
-          </ServiceInView>
-        )}
-        trackers={(
-          <ServiceInView delay={0.08}>
-            <ServiceFeatureCard service={productLaunch} eyebrow="Launch Theatre" />
-          </ServiceInView>
-        )}
-        statistic={(
-          <ServiceInView delay={0.14}>
-            <ServiceStatisticCard />
-          </ServiceInView>
-        )}
-        focus={(
-          <ServiceInView delay={0.18}>
-            <ServiceFeatureCard service={moviePromotions} eyebrow="Audience Momentum" />
-          </ServiceInView>
-        )}
-        productivity={(
-          <ServiceInView delay={0.22}>
-            <ServiceFeatureCard service={brandActivation} eyebrow="Experiential Reach" />
-          </ServiceInView>
-        )}
-        shortcuts={(
-          <ServiceInView delay={0.28}>
-            <OperationsCard primary={conferences} secondary={teamOutings} />
-          </ServiceInView>
-        )}
-      />
+      <InView
+        variants={stageReveal}
+        transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
+        viewOptions={{ once: true, margin: "0px 0px -160px 0px" }}
+      >
+        <BentoGridShowcase
+          className="mx-auto max-w-7xl md:auto-rows-[220px]"
+          integration={(
+            <ServiceInView delay={0.02}>
+              <ServiceFeatureCard service={corporateEvents} eyebrow="Signature Production" variant="feature" />
+            </ServiceInView>
+          )}
+          trackers={(
+            <ServiceInView delay={0.08}>
+              <ServiceFeatureCard service={productLaunch} eyebrow="Launch Theatre" />
+            </ServiceInView>
+          )}
+          statistic={(
+            <ServiceInView delay={0.14}>
+              <ServiceStatisticCard />
+            </ServiceInView>
+          )}
+          focus={(
+            <ServiceInView delay={0.18}>
+              <ServiceFeatureCard service={moviePromotions} eyebrow="Audience Momentum" />
+            </ServiceInView>
+          )}
+          productivity={(
+            <ServiceInView delay={0.22}>
+              <ServiceFeatureCard service={brandActivation} eyebrow="Experiential Reach" />
+            </ServiceInView>
+          )}
+          shortcuts={(
+            <ServiceInView delay={0.28}>
+              <OperationsCard primary={conferences} secondary={teamOutings} />
+            </ServiceInView>
+          )}
+        />
+      </InView>
 
       <InView
         variants={sectionReveal}
-        transition={{ duration: 0.7, delay: 0.18, ease: [0.25, 0.1, 0.25, 1] }}
+        transition={{ duration: 0.75, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
         viewOptions={{ once: true, margin: "0px 0px -120px 0px" }}
       >
         <div className="mx-auto mt-5 flex max-w-7xl flex-wrap items-center justify-center gap-2 text-center text-xs text-white/45 sm:gap-3 sm:text-sm">

@@ -14,7 +14,11 @@ const cardReveal = {
 
 export function GallerySection() {
   return (
-    <section id="gallery" className="section-padding min-h-[100svh] scroll-mt-20" aria-labelledby="gallery-heading">
+    <section
+      id="gallery"
+      className="section-padding relative z-[4] min-h-[100svh] scroll-mt-20 bg-black"
+      aria-labelledby="gallery-heading"
+    >
       <InView
         variants={sectionReveal}
         transition={{ duration: 0.75, ease: [0.25, 0.1, 0.25, 1] }}
