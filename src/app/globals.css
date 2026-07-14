@@ -60,6 +60,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+
+  main > section {
+    scroll-snap-align: start;
+  }
+}
+
 ::selection {
   background: var(--gold);
   color: var(--background);
@@ -122,6 +132,90 @@ body {
   text-shadow: 0 0 40px rgba(201, 169, 98, 0.3);
 }
 
+/* ─── Animated CTA buttons ───────────────────────────────────────── */
+.hero-action {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  overflow: hidden;
+  border-radius: 9999px;
+  padding: 0.9rem 1.35rem;
+  font-size: 0.9rem;
+  font-weight: 650;
+  line-height: 1;
+  isolation: isolate;
+  transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1), color 300ms cubic-bezier(0.23, 1, 0.32, 1), border-color 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hero-action span {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+}
+
+.hero-action::before {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: '';
+  transform: translateY(105%);
+  transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hero-action svg {
+  transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1), color 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hero-action:hover {
+  animation: cta-shake 220ms linear 1;
+  transform: translateY(-2px);
+}
+
+.hero-action:hover::before {
+  transform: translateY(0);
+}
+
+.hero-action:hover svg {
+  transform: translateX(3px) scale(1.05);
+}
+
+.hero-action-gold {
+  background: #ffffff;
+  color: #000000;
+}
+
+.hero-action-gold::before {
+  background: var(--gold);
+}
+
+.hero-action-glass {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.hero-action-glass::before {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.hero-action-glass:hover {
+  color: #000000;
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 640px) {
+  .hero-action {
+    min-height: 2.75rem;
+    padding: 0.82rem 1rem;
+    font-size: 0.82rem;
+  }
+}
+
 /* ─── 3D helpers ─────────────────────────────────────────────────── */
 .perspective-1000 {
   perspective: 1000px;
@@ -133,14 +227,26 @@ body {
 
 /* ─── Section padding ────────────────────────────────────────────── */
 .section-padding {
-  padding: clamp(4rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+  padding: 4.5rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-padding {
+    padding: 5.5rem 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+  }
 }
 
 /* ─── Heading ────────────────────────────────────────────────────── */
 .heading-display {
   font-family: var(--font-inter), system-ui, sans-serif;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   line-height: 1.05;
 }
 
@@ -170,6 +276,13 @@ body {
 
 .animate-pulse-glow {
   animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes cta-shake {
+  0% { rotate: 0deg; }
+  33% { rotate: 2deg; }
+  66% { rotate: -2deg; }
+  100% { rotate: 1deg; }
 }
 
 /* Train-bob: used for floating overlay elements */

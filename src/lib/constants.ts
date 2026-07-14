@@ -2,7 +2,7 @@ export const SITE_CONFIG = {
   name: "Artist Nation",
   tagline: "We Don't Organize Events. We Create Experiences.",
   description:
-    "Bangalore's premier event management company specializing in corporate events, product launches, movie promotions, brand activations, celebrity management, and luxury experiences for Fortune 500 brands.",
+    "Bangalore's premier event management company for corporate events, product launches, movie promotions, brand activations, celebrity management, IT company outings, and luxury experiences across India.",
   url: "https://artistnation.in",
   locale: "en_IN",
   phone: "+91 98765 43210",
@@ -42,6 +42,9 @@ export const SEO_KEYWORDS = [
   "luxury events",
   "conference management",
   "team outings",
+  "IT company outings",
+  "corporate team outings Bangalore",
+  "event management company India",
   "best event management company",
   "premium event organizers",
   "Fortune 500 event management",

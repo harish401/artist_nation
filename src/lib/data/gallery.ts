@@ -33,7 +33,7 @@ export const galleryItems: GalleryItem[] = [
     id: "4",
     title: "Brand Pop-up",
     category: "Activation",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&q=80",
     alt: "Brand activation experiential zone for premium event organizers",
   },
   {

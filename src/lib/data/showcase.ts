@@ -34,7 +34,7 @@ export const showcaseItems: ShowcaseItem[] = [
     id: "4",
     title: "Luxury Brand Pop-up",
     category: "Brand Activation",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80",
     description: "Immersive brand activation experience",
   },
   {

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { getDefaultMetadata, getAllSchemas } from "@/lib/seo";
 import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider";
@@ -13,6 +13,7 @@ const inter = Inter({
 });
 
 const metadataConfig = getDefaultMetadata();
+const siteDescription = metadataConfig.description;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://artistnation.in"),
@@ -30,6 +31,14 @@ export const metadata: Metadata = {
   category: "Event Management",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#000000",
+  colorScheme: "dark",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -40,6 +49,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} scroll-smooth`}>
       <head>
+        <meta name="description" content={metadataConfig.description} />
+        <meta property="og:description" content={siteDescription} />
+        <meta name="twitter:description" content={siteDescription} />
+        <link rel="canonical" href="https://artistnation.in" />
         {schemas.map((schema, i) => (
           <script
             key={i}

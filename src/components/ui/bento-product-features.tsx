@@ -54,7 +54,7 @@ export function BentoGridShowcase({
       whileInView="visible"
       viewport={{ once: true, margin: "-80px" }}
       className={cn(
-        "grid w-full grid-cols-1 gap-6 auto-rows-[minmax(180px,auto)] md:grid-cols-3 md:grid-rows-3",
+        "grid w-full auto-rows-[minmax(160px,auto)] grid-cols-1 gap-4 md:grid-cols-3 md:grid-rows-3 md:gap-6",
         className
       )}
     >

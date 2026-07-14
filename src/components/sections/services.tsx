@@ -34,8 +34,8 @@ function ServiceFeatureCard({
   return (
     <article
       className={cn(
-        "liquid-glass group relative h-full min-h-[240px] overflow-hidden rounded-2xl border border-white/10",
-        isFeature ? "min-h-[620px]" : "min-h-[220px]"
+        "liquid-glass group relative h-full min-h-[190px] overflow-hidden rounded-xl border border-white/10 sm:rounded-2xl",
+        isFeature ? "min-h-[360px] sm:min-h-[420px] md:min-h-[620px]" : "sm:min-h-[210px] md:min-h-[220px]"
       )}
     >
       <Image
@@ -46,10 +46,10 @@ function ServiceFeatureCard({
         className="object-cover opacity-60 transition duration-700 group-hover:scale-105 group-hover:opacity-75"
       />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08)_0%,rgba(0,0,0,0.78)_64%,rgba(0,0,0,0.94)_100%)]" />
-      <div className="relative z-10 flex h-full flex-col justify-between p-6 md:p-7">
+      <div className="relative z-10 flex h-full flex-col justify-between p-4 sm:p-5 md:p-7">
         <div className="flex items-center justify-between gap-4">
-          <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-gold/25 bg-gold/10 text-gold">
-            <Icon size={22} />
+          <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-gold/25 bg-gold/10 text-gold sm:h-11 sm:w-11">
+            <Icon size={20} />
           </span>
           <ArrowUpRight
             size={20}
@@ -61,15 +61,15 @@ function ServiceFeatureCard({
           <p className="mb-3 text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-gold/80">
             {eyebrow}
           </p>
-          <h3 className={cn("heading-display text-white", isFeature ? "text-3xl md:text-4xl" : "text-2xl")}>
+          <h3 className={cn("heading-display text-white", isFeature ? "text-2xl sm:text-3xl md:text-4xl" : "text-xl sm:text-2xl")}>
             {service.title}
           </h3>
-          <p className="mt-3 max-w-md text-sm leading-relaxed text-white/65 md:text-base">
+          <p className="mt-2 max-w-md text-xs leading-relaxed text-white/65 sm:mt-3 sm:text-sm md:text-base">
             {isFeature ? service.longDescription : service.description}
           </p>
 
           {isFeature && (
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div className="mt-5 hidden flex-wrap gap-2 sm:flex md:mt-6">
               {service.keywords.map((keyword) => (
                 <span
                   key={keyword}
@@ -88,7 +88,7 @@ function ServiceFeatureCard({
 
 function ServiceStatisticCard() {
   return (
-    <article className="liquid-glass relative flex h-full min-h-[220px] overflow-hidden rounded-2xl border border-white/10 p-6">
+    <article className="liquid-glass relative flex h-full min-h-[180px] overflow-hidden rounded-xl border border-white/10 p-4 sm:min-h-[200px] sm:rounded-2xl sm:p-5 md:min-h-[220px] md:p-6">
       <div
         className="absolute inset-0 opacity-25"
         style={{
@@ -100,8 +100,8 @@ function ServiceStatisticCard() {
       <div className="relative z-10 flex w-full flex-col justify-between">
         <p className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-white/50">Proven Scale</p>
         <div>
-          <p className="heading-display text-6xl text-white md:text-7xl">{SITE_CONFIG.stats.events}+</p>
-          <p className="mt-3 max-w-[15rem] text-sm leading-relaxed text-white/60">
+          <p className="heading-display text-4xl text-white sm:text-5xl md:text-7xl">{SITE_CONFIG.stats.events}+</p>
+          <p className="mt-3 max-w-[15rem] text-xs leading-relaxed text-white/60 sm:text-sm">
             premium event experiences produced across launches, summits, activations, and retreats.
           </p>
         </div>
@@ -115,30 +115,30 @@ function OperationsCard({ primary, secondary }: { primary: Service; secondary: S
   const SecondaryIcon = secondary.icon;
 
   return (
-    <article className="liquid-glass relative h-full min-h-[220px] overflow-hidden rounded-2xl border border-white/10 p-6 md:p-7">
-      <div className="relative z-10 flex h-full flex-col gap-6 md:flex-row md:items-center md:justify-between">
+    <article className="liquid-glass relative h-full min-h-[190px] overflow-hidden rounded-xl border border-white/10 p-4 sm:rounded-2xl sm:p-5 md:min-h-[220px] md:p-7">
+      <div className="relative z-10 flex h-full flex-col gap-4 md:flex-row md:items-center md:justify-between md:gap-6">
         <div className="max-w-xl">
           <p className="mb-3 text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-gold/80">
             Full-Stack Delivery
           </p>
-          <h3 className="heading-display text-2xl text-white md:text-3xl">Conference ops to team retreats</h3>
-          <p className="mt-3 text-sm leading-relaxed text-white/60 md:text-base">
+          <h3 className="heading-display text-xl text-white sm:text-2xl md:text-3xl">Conference ops to team retreats</h3>
+          <p className="mt-2 text-xs leading-relaxed text-white/60 sm:mt-3 sm:text-sm md:text-base">
             Delegate journeys, venue production, artist coordination, and retreat programming stay connected under one
             calm command center.
           </p>
         </div>
 
-        <div className="grid min-w-0 gap-3 sm:min-w-[18rem]">
+        <div className="grid min-w-0 gap-2 sm:gap-3 md:min-w-[18rem]">
           {[primary, secondary].map((service, index) => {
             const Icon = index === 0 ? PrimaryIcon : SecondaryIcon;
 
             return (
               <div
                 key={service.id}
-                className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-3"
+                className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-2.5 sm:p-3"
               >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/10 text-gold">
-                  <Icon size={19} />
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/10 text-gold sm:h-10 sm:w-10">
+                  <Icon size={18} />
                 </span>
                 <div className="min-w-0">
                   <p className="truncate text-sm font-medium text-white">{service.title}</p>
@@ -156,13 +156,13 @@ function OperationsCard({ primary, secondary }: { primary: Service; secondary: S
 
 export function ServicesSection() {
   return (
-    <section id="services" className="section-padding" aria-labelledby="services-heading">
-      <ScrollReveal className="mx-auto mb-16 max-w-7xl text-center md:mb-20">
-        <p className="mb-4 text-xs uppercase tracking-[0.3em] text-gold">Our Services</p>
+    <section id="services" className="section-padding min-h-[100svh] scroll-mt-20" aria-labelledby="services-heading">
+      <ScrollReveal className="mx-auto mb-10 max-w-7xl text-center sm:mb-14 md:mb-20">
+        <p className="mb-4 text-[0.68rem] uppercase tracking-[0.24em] text-gold sm:text-xs sm:tracking-[0.3em]">Our Services</p>
         <h2 id="services-heading" className="heading-display text-3xl md:text-5xl lg:text-6xl">
           Premium <span className="gold-gradient">Event Solutions</span>
         </h2>
-        <p className="mx-auto mt-6 max-w-2xl text-lg text-white/60">
+        <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-white/60 sm:text-base md:mt-6 md:text-lg">
           Full-spectrum event management for corporate, entertainment, and luxury experiences.
         </p>
       </ScrollReveal>
@@ -182,7 +182,7 @@ export function ServicesSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.7, delay: 0.2 }}
-        className="mx-auto mt-6 flex max-w-7xl flex-wrap items-center justify-center gap-3 text-center text-sm text-white/45"
+        className="mx-auto mt-5 flex max-w-7xl flex-wrap items-center justify-center gap-2 text-center text-xs text-white/45 sm:gap-3 sm:text-sm"
       >
         <span>Also handling {celebrityManagement.title.toLowerCase()}</span>
         <span className="hidden h-1 w-1 rounded-full bg-gold/60 sm:inline-block" aria-hidden="true" />

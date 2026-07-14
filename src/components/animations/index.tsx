@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
+import { motion, useInView, useMotionValue, useSpring, type HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 /* ─── MagneticButton ─────────────────────────────────────────────── */
-interface MagneticButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface MagneticButtonProps extends Omit<HTMLMotionProps<"button">, "ref"> {
   variant?: "primary" | "secondary" | "ghost";
   size?: "sm" | "md" | "lg";
   children: React.ReactNode;
@@ -240,7 +240,7 @@ export function AnimatedHeading({
   const lines = text.split("\n");
 
   return (
-    <Tag ref={ref} className={className} style={{ letterSpacing: "-0.04em" }} aria-label={text}>
+    <Tag ref={ref} className={className} style={{ letterSpacing: 0 }} aria-label={text}>
       {lines.map((line, lineIndex) => {
         const chars = line.split("");
         const lineOffset = lines.slice(0, lineIndex).reduce((acc, l) => acc + l.length, 0);
@@ -254,9 +254,9 @@ export function AnimatedHeading({
                   key={charIndex}
                   className="inline-block"
                   style={{
-                    opacity: started ? 1 : 0,
+                    opacity: 1,
                     transform: started ? "translateX(0)" : "translateX(-18px)",
-                    transition: `opacity 500ms ease ${delay}ms, transform 500ms ease ${delay}ms`,
+                    transition: `transform 500ms ease ${delay}ms`,
                   }}
                 >
                   {char === " " ? "\u00A0" : char}

@@ -1,49 +1,36 @@
 "use client";
 
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import { FaWhatsapp, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { SITE_CONFIG } from "@/lib/constants";
 
-const ParticleBackground = dynamic(
-  () => import("@/components/3d/particle-background").then((m) => m.ParticleBackground),
-  { ssr: false }
-);
-
 const footerLinks = {
   services: [
-    { label: "Corporate Events", href: "#corporate" },
-    { label: "Product Launch", href: "#product-launch" },
-    { label: "Movie Promotions", href: "#movies" },
-    { label: "Team Outings", href: "#outings" },
-    { label: "Brand Activation", href: "#services" },
+    { label: "Corporate Events", href: "#services" },
+    { label: "Product Launches", href: "#services" },
+    { label: "Movie Promotions", href: "#services" },
+    { label: "Team Experiences", href: "#services" },
   ],
   company: [
     { label: "About", href: "#about" },
-    { label: "Showcase", href: "#showcase" },
+    { label: "Services", href: "#services" },
     { label: "Gallery", href: "#gallery" },
-    { label: "Testimonials", href: "#testimonials" },
-    { label: "Contact", href: "#contact" },
+    { label: "Early Access", href: "#contact" },
   ],
 };
 
 export function Footer() {
   return (
     <footer className="relative border-t border-white/10" aria-label="Site footer">
-      {/* Particle bg */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <ParticleBackground className="h-full w-full" />
-      </div>
-
-      <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
 
         {/* Top: brand statement */}
-        <div className="mb-16 text-center">
-          <Link href="/" className="inline-block heading-display text-3xl md:text-4xl text-white mb-4">
+        <div className="mb-12 text-center sm:mb-16">
+          <Link href="/" className="mb-4 inline-block heading-display text-2xl text-white sm:text-3xl md:text-4xl">
             ARTIST <span className="gold-gradient">NATION</span>
           </Link>
-          <p className="text-white/50 text-sm max-w-md mx-auto leading-relaxed">
+          <p className="mx-auto max-w-md text-sm leading-relaxed text-white/50">
             Bangalore&apos;s premier event management company. Creating unforgettable
             experiences for Fortune 500 brands since 2014.
           </p>
@@ -81,7 +68,7 @@ export function Footer() {
         </div>
 
         {/* Links grid */}
-        <div className="grid gap-10 md:grid-cols-3 lg:grid-cols-3 border-t border-white/10 pt-12">
+        <div className="grid gap-8 border-t border-white/10 pt-10 sm:gap-10 sm:pt-12 md:grid-cols-3 lg:grid-cols-3">
           {/* Services */}
           <div>
             <h3 className="mb-5 text-xs font-medium uppercase tracking-widest text-white/40">
@@ -89,8 +76,8 @@ export function Footer() {
             </h3>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-white/60 hover:text-gold transition-colors duration-200">
+                <li key={`${link.href}-${link.label}`}>
+                  <Link href={link.href} className="text-sm text-white/60 transition-colors duration-200 hover:text-gold">
                     {link.label}
                   </Link>
                 </li>
@@ -105,8 +92,8 @@ export function Footer() {
             </h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-white/60 hover:text-gold transition-colors duration-200">
+                <li key={`${link.href}-${link.label}`}>
+                  <Link href={link.href} className="text-sm text-white/60 transition-colors duration-200 hover:text-gold">
                     {link.label}
                   </Link>
                 </li>

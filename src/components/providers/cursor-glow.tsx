@@ -6,8 +6,17 @@ import { motion } from "framer-motion";
 export function CursorGlow() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
+  const [isEnabled, setIsEnabled] = useState(false);
 
   useEffect(() => {
+    const pointerFine = window.matchMedia("(pointer: fine)");
+
+    if (!pointerFine.matches) {
+      return;
+    }
+
+    setIsEnabled(true);
+
     const handleMove = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });
       setIsVisible(true);
@@ -24,7 +33,7 @@ export function CursorGlow() {
     };
   }, []);
 
-  if (typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches) {
+  if (!isEnabled) {
     return null;
   }
 

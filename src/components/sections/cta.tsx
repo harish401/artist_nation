@@ -5,24 +5,16 @@ import { TextReveal, FadeIn } from "@/components/animations";
 
 export function CTASection() {
   return (
-    <section id="contact" className="section-padding relative overflow-hidden" aria-labelledby="cta-heading">
-      {/* Background effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-gold/3 via-transparent to-gold/3" />
-        <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/5 blur-[200px]" />
-        <div className="absolute left-1/4 top-1/4 h-[200px] w-[200px] rounded-full bg-gold/3 blur-[100px]" />
-        <div className="absolute right-1/4 bottom-1/4 h-[200px] w-[200px] rounded-full bg-gold/3 blur-[100px]" />
-      </div>
-
-      <div className="relative mx-auto max-w-4xl px-6 text-center">
+    <section id="contact" className="relative flex min-h-[80svh] scroll-mt-20 items-center overflow-hidden bg-black px-4 py-20 sm:px-6 sm:py-24" aria-labelledby="cta-heading">
+      <div className="relative mx-auto max-w-4xl px-0 text-center sm:px-6">
         <FadeIn className="mb-6">
-          <p className="text-xs uppercase tracking-[0.3em] text-gold">Get In Touch</p>
+          <p className="text-[0.68rem] uppercase tracking-[0.24em] text-gold sm:text-xs sm:tracking-[0.3em]">Early Access</p>
         </FadeIn>
 
         <TextReveal
-          text="Let's Build Something Unforgettable"
+          text="Preview the Experience Before the Launch"
           as="h2"
-          className="heading-display text-3xl md:text-5xl lg:text-7xl text-glow"
+          className="heading-display text-3xl text-glow sm:text-4xl md:text-5xl lg:text-7xl"
         />
 
         <motion.p
@@ -30,10 +22,10 @@ export function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.7 }}
-          className="mx-auto mt-8 max-w-2xl text-lg text-white/60 md:text-xl"
+          className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-white/60 sm:text-base md:mt-8 md:text-xl"
         >
-          Ready to create your next corporate event, product launch, or luxury experience?
-          Let&apos;s talk.
+          Artist Nation is opening limited demo consultations for brands planning corporate events,
+          product launches, movie promotions, and premium team experiences.
         </motion.p>
 
         <motion.div
@@ -41,19 +33,19 @@ export function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6, duration: 0.7 }}
-          className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4 md:mt-12"
         >
           <a
             href="mailto:hello@artistnation.in"
-            className="inline-flex items-center gap-2 bg-white text-black px-10 py-4 rounded-lg font-medium text-base hover:bg-gray-100 transition-colors duration-200"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-medium text-black transition-colors duration-200 hover:bg-gray-100 sm:w-auto sm:px-10 sm:py-4 sm:text-base"
           >
-            Book Your Event
+            Request Demo Access
           </a>
           <a
             href="https://wa.me/919876543210"
             target="_blank"
             rel="noopener noreferrer"
-            className="liquid-glass border border-white/20 text-white px-10 py-4 rounded-lg font-medium text-base hover:bg-white hover:text-black transition-all duration-200"
+            className="liquid-glass w-full rounded-full border border-white/20 px-6 py-3.5 text-sm font-medium text-white transition-all duration-200 hover:bg-white hover:text-black sm:w-auto sm:px-10 sm:py-4 sm:text-base"
           >
             WhatsApp Us
           </a>
@@ -65,11 +57,11 @@ export function CTASection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.8 }}
-          className="mt-16 inline-block"
+          className="mt-10 inline-block md:mt-16"
         >
-          <div className="liquid-glass border border-white/10 rounded-full px-8 py-3">
-            <p className="text-sm text-white/60">
-              Bangalore&apos;s Premier Event Management Company · Since 2014
+          <div className="liquid-glass rounded-full border border-white/10 px-4 py-3 sm:px-8">
+            <p className="text-xs leading-relaxed text-white/60 sm:text-sm">
+              Bangalore&apos;s premier event management company · India-wide delivery
             </p>
           </div>
         </motion.div>

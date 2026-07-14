@@ -73,7 +73,7 @@ export const services: Service[] = [
     longDescription:
       "Pop-ups, experiential zones, and interactive installations that turn audiences into advocates.",
     icon: Sparkles,
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200&q=80",
     keywords: ["brand activation", "event organizers"],
   },
   {
