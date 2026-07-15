@@ -36,7 +36,7 @@
 }
 
 .main > * {
-  transform: rotate(calc(-1 * var(--peel-direction)));
+  transform: rotate(var(--peel-direction-inverse));
 }
 
 .container:hover .main,
@@ -100,12 +100,12 @@
 }
 
 .flap > * {
-  transform: rotate(calc(-1 * var(--peel-direction)));
+  transform: rotate(var(--peel-direction-inverse));
 }
 
 .container:hover .flap,
 .touchActive .flap {
-  top: calc(-100% + 2 * var(--sticker-peelback-hover) - 1px);
+  top: var(--sticker-flap-hover-top);
   clip-path: polygon(
     var(--sticker-start) var(--sticker-start),
     var(--sticker-end) var(--sticker-start),
@@ -115,7 +115,7 @@
 }
 
 .container:active .flap {
-  top: calc(-100% + 2 * var(--sticker-peelback-active) - 1px);
+  top: var(--sticker-flap-active-top);
   clip-path: polygon(
     var(--sticker-start) var(--sticker-start),
     var(--sticker-end) var(--sticker-start),

@@ -9,21 +9,33 @@ const projects = [
     category: "Corporate",
     title: "Corporate Excellence",
     description: "Leadership summits, annual days, award nights, and premium internal brand moments built with cinematic stage direction.",
-    images: [galleryItems[0], galleryItems[4], galleryItems[6]],
+    images: [galleryItems[0], galleryItems[4]],
+    motion: {
+      src: "/media/31d58427b9a831f5af3ea544c2bfbdcc.gif",
+      alt: "Animated corporate event crowd with cinematic red stage lighting",
+    },
   },
   {
     number: "02",
     category: "Launch",
     title: "Product Reveal Theatre",
     description: "High-impact launch environments for technology, automotive, lifestyle, and ambitious product teams across India.",
-    images: [galleryItems[1], galleryItems[7], galleryItems[3]],
+    images: [galleryItems[1], galleryItems[7]],
+    motion: {
+      src: "/media/Product-Lauches.gif",
+      alt: "Animated product launch stage with dramatic lighting and reveal screens",
+    },
   },
   {
     number: "03",
     category: "Entertainment",
     title: "Movie Promotions",
     description: "Premieres, red carpets, fan energy, celebrity movement, and touring activations designed for public attention.",
-    images: [galleryItems[2], galleryItems[6], galleryItems[8]],
+    images: [galleryItems[2], galleryItems[6]],
+    motion: {
+      src: "/media/5478867180baced059a833f54fc6d14b.gif",
+      alt: "Animated entertainment event crowd with confetti and stage energy",
+    },
   },
 ];
 
@@ -77,7 +89,20 @@ export function GallerySection() {
               </p>
 
               <div className="grid gap-3 md:grid-cols-[0.42fr_0.58fr] md:gap-4">
-                <div className="grid gap-3 md:gap-4">
+                <div className="creator-project-image min-h-40 sm:min-h-80 md:col-start-2 md:row-start-1 md:min-h-[clamp(20rem,35vw,34rem)]">
+                  <Image
+                    src={project.motion.src}
+                    alt={project.motion.alt}
+                    fill
+                    unoptimized
+                    sizes="(min-width: 768px) 52vw, 100vw"
+                    loading="lazy"
+                    className="object-cover"
+                  />
+                  <span>Experience</span>
+                </div>
+
+                <div className="grid gap-3 md:col-start-1 md:row-start-1 md:gap-4">
                   {project.images.slice(0, 2).map((item, imageIndex) => (
                     <div key={item.id} className="creator-project-image h-28 sm:h-52 md:h-[clamp(9rem,16vw,14rem)]">
                       <Image
@@ -90,17 +115,6 @@ export function GallerySection() {
                       <span>{imageIndex === 0 ? "Production" : "Audience"}</span>
                     </div>
                   ))}
-                </div>
-
-                <div className="creator-project-image min-h-40 sm:min-h-80 md:min-h-[clamp(20rem,35vw,34rem)]">
-                  <Image
-                    src={project.images[2].image}
-                    alt={project.images[2].alt}
-                    fill
-                    sizes="(min-width: 768px) 52vw, 100vw"
-                    className="object-cover"
-                  />
-                  <span>Experience</span>
                 </div>
               </div>
             </article>

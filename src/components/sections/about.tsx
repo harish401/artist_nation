@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
+import { LazyEventStageModel } from "@/components/3d/lazy-event-stage-model";
 
 const metrics = [
   { value: `${SITE_CONFIG.stats.events}+`, label: "Events Produced" },
@@ -31,6 +32,20 @@ export function AboutSection() {
           guest flow, artist handling, production cues, brand staging, content moments, and every quiet decision
           that makes an event feel effortless.
         </p>
+
+        <div className="creator-about-model-panel mt-10 w-full max-w-5xl sm:mt-14">
+          <div className="min-w-0 text-left">
+            <p className="creator-eyebrow">3D Event Preview</p>
+            <h3 className="mt-4 text-3xl font-black uppercase leading-none tracking-tight text-white sm:text-5xl">
+              Stage, light, crowd, and camera moving as one.
+            </h3>
+            <p className="mt-5 max-w-lg text-sm leading-relaxed text-[#d7e2ea]/62 sm:text-base">
+              A small interactive stage study for the kind of production thinking clients can feel before the first cue is called.
+            </p>
+          </div>
+
+          <LazyEventStageModel />
+        </div>
 
         <a href="#contact" className="creator-contact-button mt-10 sm:mt-14">
           Start A Project

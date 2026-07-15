@@ -63,7 +63,7 @@ export function HeroSection() {
       <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_50%_46%,rgba(201,169,98,0.12),transparent_28%),linear-gradient(180deg,rgba(12,12,12,0.78)_0%,rgba(12,12,12,0.35)_44%,rgba(12,12,12,0.96)_100%)]" />
       <div className="creator-grid-overlay absolute inset-0 z-[2]" aria-hidden="true" />
 
-      <div className="relative z-10 flex min-h-[100dvh] flex-col justify-between px-5 pb-7 pt-24 sm:px-8 sm:pb-9 sm:pt-28 md:px-10 lg:pt-32">
+      <div className="relative z-10 flex min-h-[100dvh] flex-col justify-between px-5 pb-7 pt-24 sm:px-8 sm:pb-9 sm:pt-28 md:px-10 lg:pb-20 lg:pt-32 xl:pb-24">
         <div className="overflow-hidden">
           <p className="creator-eyebrow mb-3 inline-flex items-center gap-2">
             <Sparkles size={15} />
@@ -106,6 +106,7 @@ export function HeroSection() {
           </div>
         </div>
       </div>
+      <div className="creator-hero-torn-edge" aria-hidden="true" />
     </section>
   );
 }

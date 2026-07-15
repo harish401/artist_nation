@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { services } from "@/lib/data/services";
 import { InView } from "@/components/ui/in-view";
+import { OptionWheel } from "@/components/ui/option-wheel";
 
 const itemReveal = {
   hidden: { opacity: 0, y: 28 },
@@ -20,6 +21,28 @@ export function ServicesSection() {
           <h2 id="services-heading" className="font-black uppercase leading-none tracking-tight text-[clamp(3.5rem,13vw,10rem)]">
             Event Solutions
           </h2>
+        </div>
+
+        <div className="creator-service-picker mb-12 grid gap-5 md:mb-16 md:grid-cols-[0.72fr_1fr] md:items-stretch">
+          <div className="flex flex-col justify-between rounded-[2rem] border border-black/15 bg-black px-5 py-6 text-white sm:px-7 sm:py-8">
+            <div>
+              <p className="text-[0.62rem] font-semibold uppercase tracking-[0.28em] text-gold-light">Spin the brief</p>
+              <h3 className="mt-5 text-3xl font-black uppercase leading-none tracking-tight sm:text-5xl">
+                Pick the energy. We build the event around it.
+              </h3>
+            </div>
+            <p className="mt-8 max-w-sm text-sm leading-relaxed text-white/62">
+              Use the wheel to browse Artist Nation&apos;s core event formats, from boardroom-polished conferences to cinematic public launches.
+            </p>
+          </div>
+
+          <OptionWheel
+            items={services.map((service) => service.title)}
+            defaultSelected={1}
+            fontSize={2.05}
+            inset={44}
+            className="min-h-[13rem] md:min-h-[22rem]"
+          />
         </div>
 
         <div className="border-y border-black/15">
