@@ -1,107 +1,111 @@
 import Image from "next/image";
-import { galleryItems, galleryCategories } from "@/lib/data/gallery";
-import { InView } from "@/components/ui/in-view";
+import type { CSSProperties } from "react";
+import { ArrowUpRight } from "lucide-react";
+import { galleryItems } from "@/lib/data/gallery";
 
-const sectionReveal = {
-  hidden: { opacity: 0, y: 28, filter: "blur(10px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-};
-
-const cardReveal = {
-  hidden: { opacity: 0, scale: 0.86, y: 34, filter: "blur(12px)" },
-  visible: { opacity: 1, scale: 1, y: 0, filter: "blur(0px)" },
-};
+const projects = [
+  {
+    number: "01",
+    category: "Corporate",
+    title: "Corporate Excellence",
+    description: "Leadership summits, annual days, award nights, and premium internal brand moments built with cinematic stage direction.",
+    images: [galleryItems[0], galleryItems[4], galleryItems[6]],
+  },
+  {
+    number: "02",
+    category: "Launch",
+    title: "Product Reveal Theatre",
+    description: "High-impact launch environments for technology, automotive, lifestyle, and ambitious product teams across India.",
+    images: [galleryItems[1], galleryItems[7], galleryItems[3]],
+  },
+  {
+    number: "03",
+    category: "Entertainment",
+    title: "Movie Promotions",
+    description: "Premieres, red carpets, fan energy, celebrity movement, and touring activations designed for public attention.",
+    images: [galleryItems[2], galleryItems[6], galleryItems[8]],
+  },
+];
 
 export function GallerySection() {
   return (
     <section
       id="gallery"
-      className="section-padding relative z-[4] min-h-[100svh] scroll-mt-20 bg-black"
+      className="creator-projects relative z-[4] -mt-10 scroll-mt-20 rounded-t-[2.5rem] bg-[#0c0c0c] px-5 py-20 sm:-mt-12 sm:rounded-t-[3.2rem] sm:px-8 sm:py-24 md:px-10 md:py-32"
       aria-labelledby="gallery-heading"
     >
-      <InView
-        variants={sectionReveal}
-        transition={{ duration: 0.75, ease: [0.25, 0.1, 0.25, 1] }}
-        viewOptions={{ once: true, margin: "0px 0px -120px 0px" }}
-      >
-        <div className="mx-auto mb-8 max-w-7xl text-center sm:mb-12">
-          <p className="mb-4 text-[0.68rem] uppercase tracking-[0.24em] text-gold sm:text-sm sm:tracking-[0.3em]">Gallery</p>
-          <h2 id="gallery-heading" className="heading-display text-3xl md:text-5xl lg:text-6xl">
-            Moments <span className="gold-gradient">Captured</span>
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 text-center sm:mb-16 md:mb-20">
+          <p className="mb-4 text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-gold">Projects</p>
+          <h2 id="gallery-heading" className="creator-section-heading text-[clamp(3.5rem,13vw,10rem)]">
+            Event Worlds
           </h2>
         </div>
-      </InView>
 
-      <InView
-        variants={sectionReveal}
-        transition={{ duration: 0.7, delay: 0.08, ease: [0.25, 0.1, 0.25, 1] }}
-        viewOptions={{ once: true, margin: "0px 0px -120px 0px" }}
-      >
-        <div className="mx-auto mb-8 flex max-w-7xl flex-wrap justify-center gap-2 px-0 sm:mb-12 sm:gap-3 sm:px-6">
-          {galleryCategories.map((cat) => (
-            <span
-              key={cat}
-              className="glass inline-flex min-h-10 items-center rounded-full px-3.5 py-2 text-xs text-muted transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:text-white sm:px-5 sm:text-sm"
+        <div className="space-y-8 md:space-y-0">
+          {projects.map((project, index) => (
+            <article
+              key={project.title}
+              className="creator-project-card"
+              style={
+                {
+                  "--card-index": index,
+                  "--card-top-mobile": `${4.85 + index * 0.72}rem`,
+                  "--card-top-desktop": `${5.5 + index * 1.75}rem`,
+                  "--card-scale": 1 - (projects.length - 1 - index) * 0.018,
+                } as CSSProperties
+              }
             >
-              {cat}
-            </span>
+              <div className="mb-5 grid gap-4 md:mb-7 md:grid-cols-[auto_1fr_auto] md:items-center">
+                <p className="creator-project-number">{project.number}</p>
+                <div>
+                  <p className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-gold-light/85">
+                    {project.category}
+                  </p>
+                  <h3 className="mt-2 text-2xl font-black uppercase leading-none tracking-tight text-[#d7e2ea] sm:text-4xl md:text-5xl">
+                    {project.title}
+                  </h3>
+                </div>
+                <a href="#contact" className="creator-project-button">
+                  Plan Similar
+                  <ArrowUpRight size={16} />
+                </a>
+              </div>
+
+              <p className="mb-6 max-w-3xl text-sm leading-relaxed text-[#d7e2ea]/65 sm:text-base md:text-lg">
+                {project.description}
+              </p>
+
+              <div className="grid gap-3 md:grid-cols-[0.42fr_0.58fr] md:gap-4">
+                <div className="grid gap-3 md:gap-4">
+                  {project.images.slice(0, 2).map((item, imageIndex) => (
+                    <div key={item.id} className="creator-project-image h-28 sm:h-52 md:h-[clamp(9rem,16vw,14rem)]">
+                      <Image
+                        src={item.image}
+                        alt={item.alt}
+                        fill
+                        sizes="(min-width: 768px) 36vw, 100vw"
+                        className="object-cover"
+                      />
+                      <span>{imageIndex === 0 ? "Production" : "Audience"}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="creator-project-image min-h-40 sm:min-h-80 md:min-h-[clamp(20rem,35vw,34rem)]">
+                  <Image
+                    src={project.images[2].image}
+                    alt={project.images[2].alt}
+                    fill
+                    sizes="(min-width: 768px) 52vw, 100vw"
+                    className="object-cover"
+                  />
+                  <span>Experience</span>
+                </div>
+              </div>
+            </article>
           ))}
         </div>
-      </InView>
-
-      <div className="mx-auto max-w-7xl columns-1 gap-3 px-0 sm:columns-2 sm:px-6 lg:columns-3 lg:gap-4 lg:px-8">
-        {galleryItems.map((item, index) => (
-          <div key={item.id} className="mb-3 break-inside-avoid sm:mb-4">
-            <InView
-              variants={cardReveal}
-              transition={{
-                duration: 0.72,
-                delay: Math.min(index * 0.045, 0.32),
-                ease: [0.25, 0.1, 0.25, 1],
-              }}
-              viewOptions={{ once: true, margin: "0px 0px -180px 0px" }}
-            >
-              <article className="gallery-cinematic-card group relative overflow-hidden rounded-xl transition duration-500 hover:-translate-y-1 hover:scale-[1.01] sm:rounded-2xl">
-                {item.videoUrl ? (
-                  <a
-                    href={item.videoUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="relative block"
-                    aria-label={`Watch ${item.title}`}
-                  >
-                    <Image
-                      src={item.image}
-                      alt={item.alt}
-                      width={600}
-                      height={index % 3 === 0 ? 400 : index % 3 === 1 ? 500 : 350}
-                      className="gallery-cinematic-image h-56 w-full object-cover sm:h-auto"
-                    />
-                    <span className="absolute inset-0 grid place-items-center bg-black/10 transition group-hover:bg-black/25">
-                      <span className="liquid-glass rounded-full px-4 py-2 text-xs font-medium uppercase tracking-[0.16em] text-white">
-                        Play Film
-                      </span>
-                    </span>
-                  </a>
-                ) : (
-                  <Image
-                    src={item.image}
-                    alt={item.alt}
-                    width={600}
-                    height={index % 3 === 0 ? 400 : index % 3 === 1 ? 500 : 350}
-                    className="gallery-cinematic-image h-56 w-full object-cover sm:h-auto"
-                  />
-                )}
-                <div className="absolute inset-x-0 bottom-0 z-10 p-3 sm:p-4">
-                  <div className="liquid-glass translate-y-0 rounded-xl px-3 py-2 opacity-100 transition duration-500 sm:translate-y-3 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100">
-                    <p className="text-[0.62rem] uppercase tracking-[0.18em] text-gold/80">Artist Nation</p>
-                    <h3 className="mt-1 text-sm font-medium">{item.title}</h3>
-                  </div>
-                </div>
-              </article>
-            </InView>
-          </div>
-        ))}
       </div>
     </section>
   );

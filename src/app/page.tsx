@@ -3,6 +3,7 @@ import { Navigation } from "@/components/layout/navigation";
 import { Footer } from "@/components/layout/footer";
 import { getDefaultMetadata } from "@/lib/seo";
 import { HeroSection } from "@/components/sections/hero";
+import { MarqueeSection } from "@/components/sections/marquee";
 import { AboutSection } from "@/components/sections/about";
 import { ServicesSection } from "@/components/sections/services";
 import { GallerySection } from "@/components/sections/gallery";
@@ -14,18 +15,13 @@ export default function Home() {
   return (
     <>
       <Navigation />
-      <main className="section-paper-stack bg-black">
-        <div className="paper-panel paper-panel-hero">
-          <HeroSection />
-        </div>
-        <div className="paper-panel paper-panel-about">
-          <AboutSection />
-        </div>
+      <main className="creator-site overflow-x-clip bg-[#0c0c0c]">
+        <HeroSection />
+        <MarqueeSection />
+        <AboutSection />
         <ServicesSection />
         <GallerySection />
-        <div className="paper-panel paper-panel-cta">
-          <CTASection />
-        </div>
+        <CTASection />
       </main>
       <Footer />
     </>

@@ -1,57 +1,31 @@
 import Image from "next/image";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, Sparkles } from "lucide-react";
+import { StickerPeel } from "@/components/ui/sticker-peel";
 
 const heroVideoMobile = "/media/artist-hero-mobile.mp4";
 const heroVideoDesktop = "/media/artist-hero-desktop.mp4";
 const heroPoster = "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1600&q=80";
 
-function FadeIn({
-  children,
-  delay = 0,
-  className = "",
-}: {
-  children: React.ReactNode;
-  delay?: number;
-  className?: string;
-}) {
+function StageSketchModel() {
   return (
-    <div
-      className={`css-fade-in ${className}`}
-      style={{ animationDelay: `${delay}ms` }}
-    >
-      {children}
+    <div className="creator-stage-model" aria-hidden="true">
+      <div className="creator-stage-orbit creator-stage-orbit-a" />
+      <div className="creator-stage-orbit creator-stage-orbit-b" />
+      <div className="creator-stage-rig">
+        <span className="creator-truss creator-truss-top" />
+        <span className="creator-truss creator-truss-left" />
+        <span className="creator-truss creator-truss-right" />
+        <span className="creator-screen" />
+        <span className="creator-beam creator-beam-a" />
+        <span className="creator-beam creator-beam-b" />
+        <span className="creator-beam creator-beam-c" />
+        <span className="creator-platform" />
+        <span className="creator-audience-dot dot-a" />
+        <span className="creator-audience-dot dot-b" />
+        <span className="creator-audience-dot dot-c" />
+        <span className="creator-audience-dot dot-d" />
+      </div>
     </div>
-  );
-}
-
-function AnimatedHeading({ text, className = "", charDelay = 18 }: { text: string; className?: string; charDelay?: number }) {
-  const lines = text.split("\n");
-
-  return (
-    <h1 className={className} style={{ letterSpacing: 0 }}>
-      {lines.map((line, lineIndex) => {
-        const chars = line.split("");
-        const lineOffset = lines.slice(0, lineIndex).reduce((acc, l) => acc + l.length, 0);
-
-        return (
-          <span key={line} className="block">
-            {chars.map((char, charIndex) => {
-              const globalIndex = lineOffset + charIndex;
-
-              return (
-                <span
-                  key={`${char}-${charIndex}`}
-                  className="hero-heading-char inline-block"
-                  style={{ animationDelay: `${globalIndex * charDelay}ms` }}
-                >
-                  {char === " " ? "\u00A0" : char}
-                </span>
-              );
-            })}
-          </span>
-        );
-      })}
-    </h1>
   );
 }
 
@@ -59,8 +33,8 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-[100dvh] w-full flex-col overflow-hidden bg-black md:min-h-[720px]"
-      aria-label="Hero — Artist Nation Event Management"
+      className="creator-hero relative min-h-[100dvh] overflow-hidden bg-[#0c0c0c]"
+      aria-label="Hero - Artist Nation Event Management"
     >
       <Image
         src={heroPoster}
@@ -68,83 +42,69 @@ export function HeroSection() {
         fill
         priority
         fetchPriority="high"
-        quality={64}
+        quality={58}
         sizes="100vw"
-        className="kinetic-media absolute inset-0 z-0 h-full w-full object-cover object-center"
+        className="absolute inset-0 z-0 h-full w-full object-cover opacity-28"
         aria-hidden="true"
       />
-
       <video
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
-        className="absolute inset-0 z-0 h-full w-full object-cover object-center"
+        className="absolute inset-0 z-0 h-full w-full object-cover opacity-32"
         aria-hidden="true"
       >
         <source media="(max-width: 767px)" src={heroVideoMobile} type="video/mp4" />
         <source media="(min-width: 768px)" src={heroVideoDesktop} type="video/mp4" />
       </video>
 
-      <div className="cinematic-sweep absolute inset-0 z-[1]" aria-hidden="true" />
-      <div className="cinematic-grain absolute inset-0 z-[1]" aria-hidden="true" />
-      <div className="absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(0,0,0,0.44)_0%,rgba(0,0,0,0.18)_38%,rgba(0,0,0,0.74)_100%)]" />
-      <div className="absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(0,0,0,0.72)_0%,rgba(0,0,0,0.24)_58%,rgba(0,0,0,0.64)_100%)]" />
+      <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_50%_46%,rgba(201,169,98,0.12),transparent_28%),linear-gradient(180deg,rgba(12,12,12,0.78)_0%,rgba(12,12,12,0.35)_44%,rgba(12,12,12,0.96)_100%)]" />
+      <div className="creator-grid-overlay absolute inset-0 z-[2]" aria-hidden="true" />
 
-      <div className="relative z-10 flex min-h-[100dvh] flex-col px-4 pb-10 pt-28 sm:px-6 sm:pt-32 md:px-12 md:pt-36 lg:px-16 lg:pt-40">
-        <div className="flex flex-1 flex-col justify-center pb-6 sm:pb-8 lg:translate-y-6 lg:pb-12">
-          <div className="grid gap-6 lg:grid-cols-2 lg:items-end lg:gap-8">
-            <div>
-              <AnimatedHeading
-                text={"We Don't Organize\nEvents.\nWe Create\nExperiences."}
-                className="mb-4 text-3xl font-normal leading-[1.04] text-white min-[390px]:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl"
-              />
+      <div className="relative z-10 flex min-h-[100dvh] flex-col justify-between px-5 pb-7 pt-24 sm:px-8 sm:pb-9 sm:pt-28 md:px-10 lg:pt-32">
+        <div className="overflow-hidden">
+          <p className="creator-eyebrow mb-3 inline-flex items-center gap-2">
+            <Sparkles size={15} />
+            Event Direction Studio
+          </p>
+          <h1 className="creator-hero-heading">Artist Nation</h1>
+        </div>
 
-              <FadeIn delay={500} className="mb-5">
-                <p className="max-w-xl text-sm leading-relaxed text-gray-200 sm:text-base md:text-lg">
-                  Crafting unforgettable corporate events, product launches, movie promotions,
-                  brand activations and luxury experiences.
-                </p>
-              </FadeIn>
+        <div className="pointer-events-none absolute inset-x-0 top-1/2 z-0 flex -translate-y-1/2 justify-center sm:top-auto sm:bottom-0 sm:translate-y-0">
+          <StageSketchModel />
+        </div>
 
-              <FadeIn delay={650}>
-                <div className="flex flex-wrap gap-3 sm:gap-4">
-                  <a href="#contact" className="hero-action hero-action-gold w-full sm:w-auto">
-                    <span>Get Early Access</span>
-                    <span>
-                      <ArrowRight size={17} />
-                    </span>
-                  </a>
-                  <a href="#gallery" className="hero-action hero-action-glass w-full sm:w-auto">
-                    <span>Watch Showreel</span>
-                    <span>
-                      <Play size={17} />
-                    </span>
-                  </a>
-                </div>
-              </FadeIn>
-            </div>
+        <div className="creator-hero-sticker">
+          <StickerPeel
+            imageSrc="/stickers/artist-pass.svg"
+            width="clamp(7.5rem, 18vw, 15rem)"
+            peelDirection={8}
+            peelBackHoverPct={24}
+            peelBackActivePct={42}
+            shadowIntensity={0.56}
+            lightingIntensity={0.12}
+            label="Artist Nation early access event pass"
+          />
+        </div>
 
-            <FadeIn delay={760} className="flex items-end justify-start lg:justify-end">
-              <div className="liquid-glass max-w-sm rounded-xl border border-white/20 px-4 py-3 sm:px-5 lg:max-w-md">
-                <p className="text-sm font-light leading-relaxed text-white sm:text-base md:text-xl lg:text-2xl">
-                  Corporate Events. Movie Promotions. Celebrity Management.
-                </p>
-              </div>
-            </FadeIn>
+        <div className="relative z-20 grid gap-6 sm:grid-cols-[minmax(0,20rem)_auto] sm:items-end sm:justify-between">
+          <p className="max-w-[17rem] text-xs font-light uppercase leading-snug tracking-[0.16em] text-[#d7e2ea] sm:text-sm md:text-base">
+            A cinematic event management company crafting corporate events, product launches, movie promotions, and luxury experiences across India.
+          </p>
+
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a href="#contact" className="creator-contact-button">
+              Book Consultation
+              <ArrowRight size={16} />
+            </a>
+            <a href="#gallery" className="creator-ghost-button">
+              Watch Showreel
+              <Play size={16} />
+            </a>
           </div>
         </div>
-      </div>
-
-      <div
-        className="paper-scroll-cue pointer-events-none absolute bottom-6 left-1/2 z-20 hidden -translate-x-1/2 items-center gap-3 text-[0.62rem] font-medium uppercase tracking-[0.34em] text-white/55 md:flex"
-        aria-hidden="true"
-      >
-        <span>Scroll</span>
-        <span className="relative h-11 w-px overflow-hidden rounded-full bg-white/15">
-          <span className="animate-scroll-down absolute left-0 top-0 h-5 w-px rounded-full bg-gold" />
-        </span>
       </div>
     </section>
   );
