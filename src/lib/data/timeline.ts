@@ -8,7 +8,7 @@ export interface TimelineMilestone {
 export const milestones: TimelineMilestone[] = [
   {
     id: "1",
-    year: "2014",
+    year: "2011",
     title: "Founded in Bangalore",
     description: "Artist Nation was born with a vision to redefine event management in India.",
   },

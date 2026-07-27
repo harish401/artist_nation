@@ -23,7 +23,7 @@ export const SITE_CONFIG = {
   stats: {
     events: 1000,
     brands: 200,
-    years: 10,
+    years: 15,
     artists: 500,
   },
 } as const;

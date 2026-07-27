@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import { FaWhatsapp, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { SITE_CONFIG } from "@/lib/constants";
@@ -27,12 +28,18 @@ export function Footer() {
 
         {/* Top: brand statement */}
         <div className="mb-12 text-center sm:mb-16">
-          <Link href="/" className="mb-4 inline-block heading-display text-2xl text-white sm:text-3xl md:text-4xl">
-            ARTIST <span className="gold-gradient">NATION</span>
+          <Link href="/" className="mb-5 inline-flex justify-center" aria-label="Artist Nation home">
+            <Image
+              src="/brand/artist-nation-logo-transparent.png"
+              alt=""
+              width={833}
+              height={766}
+              className="artist-footer-logo"
+            />
           </Link>
           <p className="mx-auto max-w-md text-sm leading-relaxed text-white/50">
             Bangalore&apos;s premier event management company. Creating unforgettable
-            experiences for Fortune 500 brands since 2014.
+            experiences for Fortune 500 brands with 15+ years of production craft.
           </p>
 
           {/* Social icons as liquid-glass pills */}

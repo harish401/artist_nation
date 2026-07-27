@@ -13,7 +13,7 @@ const serviceAreas = [
   "India",
 ];
 
-const logoImage = `${SITE_CONFIG.url}/logo.svg`;
+const logoImage = `${SITE_CONFIG.url}/brand/artist-nation-logo-transparent.png`;
 const ogImage = `${SITE_CONFIG.url}/og-image.svg`;
 
 function postalAddress() {

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -17,8 +18,15 @@ export function Navigation() {
           className="creator-nav-brand"
           aria-label="Artist Nation home"
         >
-          <span>ARTIST</span>
-          <span>NATION</span>
+          <Image
+            src="/brand/artist-nation-wordmark-transparent.png"
+            alt=""
+            width={673}
+            height={188}
+            priority
+            className="creator-nav-logo"
+          />
+          <span className="sr-only">Artist Nation</span>
           <span className="creator-nav-status" aria-hidden="true">Live</span>
         </Link>
 
