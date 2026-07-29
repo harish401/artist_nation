@@ -70,6 +70,12 @@ export function MotionPreviewSection() {
   const cardY = [card1Y, card2Y, card3Y];
   const cardR = [card1R, card2R, card3R];
 
+  /* Deck progress bar fills — must be declared here, NOT inside .map() */
+  const bar0ScaleX = useTransform(smoothProgress, [0 * 0.2, 0 * 0.2 + 0.2], [0, 1]);
+  const bar1ScaleX = useTransform(smoothProgress, [1 * 0.2, 1 * 0.2 + 0.2], [0, 1]);
+  const bar2ScaleX = useTransform(smoothProgress, [2 * 0.2, 2 * 0.2 + 0.2], [0, 1]);
+  const barScaleX = [bar0ScaleX, bar1ScaleX, bar2ScaleX];
+
   return (
     <section
       id="motion-preview"
@@ -143,11 +149,7 @@ export function MotionPreviewSection() {
                     <motion.div
                       className="h-full bg-gold"
                       style={{
-                        scaleX: useTransform(
-                          smoothProgress,
-                          [i * 0.2, i * 0.2 + 0.2],
-                          [0, 1]
-                        ),
+                        scaleX: barScaleX[i],
                         transformOrigin: "left",
                       }}
                     />
