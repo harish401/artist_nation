@@ -26,6 +26,16 @@
   --font-display: var(--font-inter);
 }
 
+@keyframes gridMove {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 80px 80px;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -65,8 +75,8 @@ body {
     scroll-snap-type: y proximity;
   }
 
-  main > section,
-  .section-paper-stack > .paper-panel {
+  main>section,
+  .section-paper-stack>.paper-panel {
     scroll-snap-align: start;
   }
 }
@@ -129,13 +139,14 @@ body {
   transform: translateZ(0);
 }
 
-.paper-panel > section {
+.paper-panel>section {
   min-height: 100svh;
 }
 
 @supports (height: 100dvh) {
+
   .paper-panel,
-  .paper-panel > section {
+  .paper-panel>section {
     min-height: 100dvh;
   }
 }
@@ -230,6 +241,7 @@ body {
 
 @supports (animation-timeline: view()) {
   @media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+
     .paper-panel-about,
     .paper-panel-cta {
       animation: mobile-paper-rise linear both;
@@ -266,15 +278,13 @@ body {
   inset: 0;
   border-radius: inherit;
   padding: 1.4px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(255, 255, 255, 0.1) 20%,
-    rgba(255, 255, 255, 0) 40%,
-    rgba(255, 255, 255, 0) 60%,
-    rgba(255, 255, 255, 0.1) 80%,
-    rgba(255, 255, 255, 0.3) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0.1) 20%,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0) 60%,
+      rgba(255, 255, 255, 0.1) 80%,
+      rgba(255, 255, 255, 0.3) 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -336,11 +346,11 @@ body {
   mix-blend-mode: soft-light;
 }
 
-.nav-details > summary {
+.nav-details>summary {
   list-style: none;
 }
 
-.nav-details > summary::-webkit-details-marker {
+.nav-details>summary::-webkit-details-marker {
   display: none;
 }
 
@@ -528,8 +538,13 @@ body {
 
 /* ─── Animations ─────────────────────────────────────────────────── */
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
@@ -537,8 +552,15 @@ body {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 .animate-float {
@@ -546,8 +568,15 @@ body {
 }
 
 @keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 .animate-pulse-glow {
@@ -555,16 +584,35 @@ body {
 }
 
 @keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes cta-shake {
-  0% { rotate: 0deg; }
-  33% { rotate: 2deg; }
-  66% { rotate: -2deg; }
-  100% { rotate: 1deg; }
+  0% {
+    rotate: 0deg;
+  }
+
+  33% {
+    rotate: 2deg;
+  }
+
+  66% {
+    rotate: -2deg;
+  }
+
+  100% {
+    rotate: 1deg;
+  }
 }
 
 @keyframes scroll-down {
@@ -572,9 +620,11 @@ body {
     opacity: 0;
     transform: translateY(-120%);
   }
+
   28% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
     transform: translateY(230%);
@@ -590,9 +640,11 @@ body {
     opacity: 0.96;
     transform: translate3d(0, 18px, 0) scale(0.996);
   }
+
   65% {
     opacity: 1;
   }
+
   100% {
     opacity: 1;
     transform: translate3d(0, 0, 0) scale(1);
@@ -604,6 +656,7 @@ body {
     opacity: 0;
     transform: translateY(14px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -614,6 +667,7 @@ body {
   from {
     transform: translateX(-14px);
   }
+
   to {
     transform: translateX(0);
   }
@@ -623,23 +677,29 @@ body {
   0% {
     transform: scale(1.04) translate3d(-0.8%, -0.6%, 0);
   }
+
   50% {
     transform: scale(1.075) translate3d(0.8%, 0.4%, 0);
   }
+
   100% {
     transform: scale(1.05) translate3d(0.2%, -0.8%, 0);
   }
 }
 
 @keyframes cinematic-sweep {
-  0%, 28% {
+
+  0%,
+  28% {
     transform: translateX(-42%);
     opacity: 0.16;
   }
+
   52% {
     transform: translateX(18%);
     opacity: 0.46;
   }
+
   100% {
     transform: translateX(42%);
     opacity: 0.12;
@@ -648,8 +708,15 @@ body {
 
 /* Train-bob: used for floating overlay elements */
 @keyframes train-bob {
-  0%, 100% { transform: scale(1.03) translateY(0); }
-  50% { transform: scale(1.03) translateY(-6px); }
+
+  0%,
+  100% {
+    transform: scale(1.03) translateY(0);
+  }
+
+  50% {
+    transform: scale(1.03) translateY(-6px);
+  }
 }
 
 .animate-train-bob {
@@ -672,6 +739,7 @@ body {
 
 /* ─── Reduced motion ─────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -694,22 +762,20 @@ body {
 .creator-hero {
   position: relative;
   z-index: 2;
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% calc(100% - var(--hero-tear-depth)),
-    94% calc(100% - var(--hero-tear-b)),
-    86% calc(100% - var(--hero-tear-c)),
-    77% calc(100% - var(--hero-tear-a)),
-    68% calc(100% - var(--hero-tear-depth)),
-    57% calc(100% - var(--hero-tear-b)),
-    47% calc(100% - var(--hero-tear-c)),
-    36% calc(100% - var(--hero-tear-a)),
-    26% calc(100% - var(--hero-tear-depth)),
-    16% calc(100% - var(--hero-tear-b)),
-    7% calc(100% - var(--hero-tear-c)),
-    0 calc(100% - var(--hero-tear-a))
-  );
+  clip-path: polygon(0 0,
+      100% 0,
+      100% calc(100% - var(--hero-tear-depth)),
+      94% calc(100% - var(--hero-tear-b)),
+      86% calc(100% - var(--hero-tear-c)),
+      77% calc(100% - var(--hero-tear-a)),
+      68% calc(100% - var(--hero-tear-depth)),
+      57% calc(100% - var(--hero-tear-b)),
+      47% calc(100% - var(--hero-tear-c)),
+      36% calc(100% - var(--hero-tear-a)),
+      26% calc(100% - var(--hero-tear-depth)),
+      16% calc(100% - var(--hero-tear-b)),
+      7% calc(100% - var(--hero-tear-c)),
+      0 calc(100% - var(--hero-tear-a)));
 }
 
 .creator-nav-shell {
@@ -1115,11 +1181,11 @@ body {
 }
 
 .artist-hero-title {
-  max-width: 13ch;
+  max-width: 17ch;
   color: #ffffff;
-  font-size: clamp(3.1rem, 8vw, 8.7rem);
+  font-size: clamp(3.1rem, 6.2vw, 6.8rem);
   font-weight: 900;
-  line-height: 0.86;
+  line-height: 0.88;
   letter-spacing: -0.055em;
   text-transform: uppercase;
   text-wrap: balance;
@@ -1341,7 +1407,7 @@ body {
   border-radius: 2rem 2rem 0 0;
 }
 
-.creator-motion-preview + .creator-marquee-section {
+.creator-motion-preview+.creator-marquee-section {
   margin-top: 0;
 }
 
@@ -1598,10 +1664,25 @@ body {
   box-shadow: 0 0 26px rgba(240, 216, 143, 0.85);
 }
 
-.dot-a { bottom: 16%; left: 30%; }
-.dot-b { bottom: 20%; left: 47%; }
-.dot-c { bottom: 17%; right: 30%; }
-.dot-d { bottom: 30%; right: 40%; }
+.dot-a {
+  bottom: 16%;
+  left: 30%;
+}
+
+.dot-b {
+  bottom: 20%;
+  left: 47%;
+}
+
+.dot-c {
+  bottom: 17%;
+  right: 30%;
+}
+
+.dot-d {
+  bottom: 30%;
+  right: 40%;
+}
 
 .creator-marquee-section {
   overflow: hidden;
@@ -1827,10 +1908,23 @@ body {
   box-shadow: 0 0 18px rgba(240, 216, 143, 0.85);
 }
 
-.event-stage-dot-a { left: 28%; }
-.event-stage-dot-b { left: 42%; bottom: 19%; }
-.event-stage-dot-c { right: 42%; bottom: 20%; }
-.event-stage-dot-d { right: 28%; }
+.event-stage-dot-a {
+  left: 28%;
+}
+
+.event-stage-dot-b {
+  left: 42%;
+  bottom: 19%;
+}
+
+.event-stage-dot-c {
+  right: 42%;
+  bottom: 20%;
+}
+
+.event-stage-dot-d {
+  right: 28%;
+}
 
 .event-stage-model canvas {
   position: absolute;
@@ -1975,8 +2069,7 @@ body {
   }
 
   .artist-hero-audio-pill {
-    padding: 0.58rem 0.72rem;
-    font-size: 0.56rem;
+    display: none;
   }
 
   .artist-hero-title {
@@ -2039,6 +2132,7 @@ body {
   }
 
   .creator-hero-sticker {
+    display: none;
     top: 46dvh;
     right: max(0.75rem, calc(100vw - 390px + 0.75rem));
     width: 7.8rem;
@@ -2111,24 +2205,732 @@ body {
 }
 
 @keyframes creator-stage-float {
-  0%, 100% { transform: translate3d(0, 0, 0) rotateZ(0deg); }
-  50% { transform: translate3d(0, -14px, 0) rotateZ(1.5deg); }
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotateZ(0deg);
+  }
+
+  50% {
+    transform: translate3d(0, -14px, 0) rotateZ(1.5deg);
+  }
 }
 
 @keyframes creator-marquee-left {
-  from { transform: translate3d(0, 0, 0); }
-  to { transform: translate3d(calc(-33.333% - 0.5rem), 0, 0); }
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(calc(-33.333% - 0.5rem), 0, 0);
+  }
 }
 
 @keyframes creator-marquee-right {
-  from { transform: translate3d(calc(-33.333% - 0.5rem), 0, 0); }
-  to { transform: translate3d(0, 0, 0); }
+  from {
+    transform: translate3d(calc(-33.333% - 0.5rem), 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .creator-stage-model,
   .creator-marquee-left,
   .creator-marquee-right {
     animation: none !important;
   }
+}
+
+/* ─── Artist Nation editorial dossier hero ──────────────────────── */
+.artist-dossier-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: max(100svh, 44rem);
+  overflow: clip;
+  background: #f1ede4;
+  color: #121212;
+}
+
+.artist-dossier-paper {
+  position: absolute;
+  inset: 0;
+  z-index: -4;
+  opacity: 0.9;
+  background:
+    radial-gradient(58rem 34rem at 93% 11%, rgba(205, 169, 91, 0.25), transparent 60%),
+    radial-gradient(40rem 30rem at 0% 100%, rgba(97, 119, 147, 0.18), transparent 64%),
+    repeating-linear-gradient(0deg, rgba(18, 18, 18, 0.018) 0 1px, transparent 1px 5px),
+    #f1ede4;
+}
+
+.artist-dossier-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  opacity: 0.32;
+  background-image:
+    linear-gradient(rgba(18, 18, 18, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 18, 18, 0.09) 1px, transparent 1px);
+  background-size: 4.75rem 4.75rem;
+  mask-image: linear-gradient(90deg, #000, transparent 78%);
+  -webkit-mask-image: linear-gradient(90deg, #000, transparent 78%);
+}
+
+.artist-dossier-pencil {
+  position: absolute;
+  z-index: -2;
+  height: 1px;
+  opacity: 0.6;
+  background: linear-gradient(90deg, transparent, #232323 24%, #b28a3e 58%, transparent);
+  transform-origin: left center;
+}
+
+.artist-dossier-pencil-one {
+  top: 26%;
+  left: -5%;
+  width: 53%;
+  transform: rotate(-10deg);
+}
+
+.artist-dossier-pencil-two {
+  right: -8%;
+  bottom: 16%;
+  width: 44%;
+  transform: rotate(11deg);
+}
+
+.artist-dossier-shell {
+  display: flex;
+  width: min(100%, 100rem);
+  min-height: max(100svh, 44rem);
+  margin-inline: auto;
+  flex-direction: column;
+  padding: 6.5rem clamp(1.25rem, 4vw, 4.5rem) 1.35rem;
+}
+
+.artist-dossier-overline,
+.artist-dossier-kicker,
+.artist-dossier-process,
+.artist-dossier-film-caption,
+.artist-dossier-frame-mark,
+.artist-dossier-archive figcaption,
+.artist-dossier-seal span,
+.artist-dossier-footer {
+  font-size: 0.63rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.artist-dossier-overline {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: rgba(18, 18, 18, 0.64);
+}
+
+.artist-dossier-overline-rule {
+  width: clamp(2.5rem, 8vw, 7rem);
+  height: 1px;
+  background: currentColor;
+  opacity: 0.42;
+}
+
+.artist-dossier-layout {
+  display: grid;
+  flex: 1;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5.5rem);
+  padding-block: clamp(2.4rem, 5.5vw, 5rem) 2rem;
+}
+
+.artist-dossier-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 44rem;
+}
+
+.artist-dossier-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: #8a651f;
+}
+
+.artist-dossier-copy h1 {
+  max-width: 10.5ch;
+  font-size: clamp(3.35rem, 7.3vw, 8rem);
+  font-weight: 900;
+  letter-spacing: -0.075em;
+  line-height: 0.82;
+  text-wrap: balance;
+}
+
+.artist-dossier-copy h1 em {
+  color: #9a7330;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1em;
+  font-weight: 400;
+  letter-spacing: -0.09em;
+}
+
+.artist-dossier-intro {
+  max-width: 34rem;
+  margin-top: 1.5rem;
+  color: rgba(18, 18, 18, 0.7);
+  font-size: clamp(0.98rem, 1.3vw, 1.14rem);
+  line-height: 1.6;
+}
+
+.artist-dossier-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.65rem;
+}
+
+.artist-dossier-primary-action,
+.artist-drive-film-trigger {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 0.55rem;
+  padding: 0.82rem 1rem;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.artist-dossier-primary-action {
+  background: #161616;
+  color: #ffffff;
+  box-shadow: 5px 5px 0 #c39b50;
+}
+
+.artist-dossier-primary-action:hover,
+.artist-drive-film-trigger:hover {
+  transform: translate(-2px, -2px);
+}
+
+.artist-dossier-primary-action:hover {
+  box-shadow: 7px 7px 0 #c39b50;
+}
+
+.artist-drive-film-trigger {
+  border: 1px solid rgba(18, 18, 18, 0.22);
+  background: rgba(255, 255, 255, 0.42);
+  color: #161616;
+}
+
+.artist-drive-film-trigger:hover {
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.artist-drive-film-icon {
+  display: grid;
+  width: 1.42rem;
+  height: 1.42rem;
+  place-items: center;
+  border-radius: 50%;
+  background: #161616;
+  color: #f1ede4;
+}
+
+.artist-dossier-process {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.4rem;
+  margin-top: 2.2rem;
+  color: rgba(18, 18, 18, 0.5);
+}
+
+.artist-dossier-process span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+}
+
+.artist-dossier-process b {
+  color: #8a651f;
+}
+
+.artist-dossier-visual {
+  position: relative;
+  min-height: clamp(23rem, 39vw, 39rem);
+}
+
+.artist-dossier-frame-mark {
+  position: absolute;
+  top: 0.6rem;
+  right: 0;
+  left: 10%;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(18, 18, 18, 0.34);
+  padding-top: 0.5rem;
+  color: rgba(18, 18, 18, 0.64);
+}
+
+.artist-dossier-film-stage {
+  position: absolute;
+  top: 2.4rem;
+  right: 0;
+  width: 83%;
+  height: 70%;
+  overflow: hidden;
+  border: 1px solid rgba(18, 18, 18, 0.5);
+  border-radius: 0.9rem;
+  background: #101010;
+  box-shadow: 1rem 1rem 0 rgba(18, 18, 18, 0.1);
+}
+
+.artist-dossier-film-poster,
+.artist-dossier-film,
+.artist-dossier-archive img {
+  object-fit: cover;
+}
+
+.artist-dossier-film {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.86;
+  filter: saturate(1.1) contrast(1.05);
+}
+
+.artist-dossier-film-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.36), transparent 42%, rgba(0, 0, 0, 0.68)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.45), transparent 56%);
+}
+
+.artist-dossier-film-caption,
+.artist-dossier-film-title {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.artist-dossier-film-caption {
+  top: 1rem;
+  right: 1rem;
+  left: 1rem;
+}
+
+.artist-dossier-film-caption span:last-child {
+  opacity: 0.6;
+}
+
+.artist-dossier-film-title {
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  justify-content: flex-start;
+  font-size: clamp(0.8rem, 1.25vw, 1rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.artist-dossier-archive {
+  position: absolute;
+  overflow: hidden;
+  margin: 0;
+  border: 0.45rem solid #faf8f2;
+  background: #d3cdc1;
+  box-shadow: 0 1.2rem 2.6rem rgba(18, 18, 18, 0.2);
+}
+
+.artist-dossier-archive::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(180deg, transparent 56%, rgba(0, 0, 0, 0.6));
+}
+
+.artist-dossier-archive figcaption {
+  position: absolute;
+  right: 0.55rem;
+  bottom: 0.55rem;
+  left: 0.55rem;
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.52rem;
+}
+
+.artist-dossier-archive-crowd {
+  bottom: 2%;
+  left: 0;
+  width: 47%;
+  height: 36%;
+  transform: rotate(-5deg);
+}
+
+.artist-dossier-archive-stage {
+  right: 1.5%;
+  bottom: -3%;
+  width: 34%;
+  height: 28%;
+  transform: rotate(5deg);
+}
+
+.artist-dossier-seal {
+  position: absolute;
+  bottom: 15%;
+  left: 34%;
+  z-index: 4;
+  display: grid;
+  width: clamp(6.5rem, 11vw, 9.5rem);
+  height: clamp(6.5rem, 11vw, 9.5rem);
+  place-content: center;
+  border: 1px solid rgba(18, 18, 18, 0.76);
+  border-radius: 50%;
+  background: #e4bf6a;
+  color: #161616;
+  text-align: center;
+  transform: rotate(-10deg);
+  box-shadow: 0 0.8rem 1.8rem rgba(18, 18, 18, 0.14);
+}
+
+.artist-dossier-seal strong {
+  margin-block: 0.15rem;
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  line-height: 0.8;
+}
+
+.artist-dossier-seal span {
+  font-size: 0.48rem;
+  letter-spacing: 0.13em;
+}
+
+.artist-dossier-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid rgba(18, 18, 18, 0.22);
+  padding-top: 1rem;
+  color: rgba(18, 18, 18, 0.66);
+}
+
+.artist-dossier-footer-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.5rem;
+}
+
+.artist-dossier-footer b {
+  color: #121212;
+}
+
+.artist-dossier-scroll-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #121212;
+  white-space: nowrap;
+}
+
+.artist-drive-film-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(11, 11, 11, 0.74);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.artist-drive-film-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 91;
+  width: min(94vw, 72rem);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 1rem;
+  background: #111111;
+  color: #ffffff;
+  box-shadow: 0 2rem 8rem rgba(0, 0, 0, 0.56);
+  transform: translate(-50%, -50%);
+}
+
+.artist-drive-film-dialog:focus-visible,
+.artist-drive-film-close:focus-visible,
+.artist-drive-film-trigger:focus-visible {
+  outline: 3px solid #d9ae52;
+  outline-offset: 3px;
+}
+
+.artist-drive-film-dialog-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 0.9rem;
+}
+
+.artist-drive-film-dialog-bar p {
+  color: #d9ae52;
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.artist-drive-film-dialog-bar h2 {
+  margin-top: 0.16rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.artist-drive-film-dialog-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.artist-drive-film-dialog-actions a,
+.artist-drive-film-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.artist-drive-film-close {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  color: #ffffff;
+}
+
+.artist-drive-film-player {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000000;
+}
+
+.artist-drive-film-player iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (min-width: 900px) {
+  .artist-dossier-layout {
+    grid-template-columns: minmax(0, 0.96fr) minmax(30rem, 1.04fr);
+  }
+}
+
+@media (max-width: 767px) {
+
+  .artist-dossier-hero,
+  .artist-dossier-shell {
+    min-height: 100svh;
+  }
+
+  .artist-dossier-shell {
+    padding: 4.7rem 1.1rem 0.8rem;
+  }
+
+  .artist-dossier-overline {
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 0.52rem;
+    letter-spacing: 0.13em;
+  }
+
+  .artist-dossier-overline-rule {
+    flex: 1;
+  }
+
+  .artist-dossier-overline>span:last-child {
+    display: none;
+  }
+
+  .artist-dossier-layout {
+    gap: 1.05rem;
+    padding-block: 1.15rem 0.6rem;
+  }
+
+  .artist-dossier-copy h1 {
+    max-width: 100%;
+    font-size: clamp(2.65rem, 11.7vw, 3.45rem);
+    line-height: 0.86;
+  }
+
+  .artist-dossier-copy h1 em {
+    display: block;
+  }
+
+  .artist-dossier-intro {
+    max-width: 22rem;
+    margin-top: 0.8rem;
+    font-size: 0.82rem;
+    line-height: 1.42;
+  }
+
+  .artist-dossier-actions {
+    align-items: stretch;
+    gap: 0.55rem;
+    margin-top: 0.9rem;
+  }
+
+  .artist-dossier-primary-action,
+  .artist-drive-film-trigger {
+    flex: 1 1 100%;
+    width: 100%;
+    min-height: 2.65rem;
+    padding: 0.72rem 0.76rem;
+    font-size: 0.59rem;
+  }
+
+  .artist-dossier-process {
+    display: none;
+  }
+
+  .artist-dossier-visual {
+    min-height: 13.1rem;
+  }
+
+  .artist-dossier-frame-mark {
+    top: 0;
+    left: 4%;
+    font-size: 0.48rem;
+  }
+
+  .artist-dossier-film-stage {
+    right: auto;
+    left: 8%;
+    top: 1.6rem;
+    width: 84%;
+    height: 66%;
+    border-radius: 0.7rem;
+    box-shadow: 0.55rem 0.55rem 0 rgba(18, 18, 18, 0.1);
+  }
+
+  .artist-dossier-film-caption {
+    top: 0.7rem;
+    right: 0.7rem;
+    left: 0.7rem;
+    font-size: 0.48rem;
+  }
+
+  .artist-dossier-film-title {
+    right: 0.7rem;
+    bottom: 0.7rem;
+    left: 0.7rem;
+    font-size: 0.7rem;
+  }
+
+  .artist-dossier-archive {
+    border-width: 0.25rem;
+  }
+
+  .artist-dossier-archive-crowd {
+    bottom: 0;
+    left: 3%;
+    width: 48%;
+    height: 33%;
+    transform: rotate(-3deg);
+  }
+
+  .artist-dossier-archive-stage {
+    right: 3%;
+    bottom: -2%;
+    width: 35%;
+    height: 25%;
+    transform: rotate(3deg);
+  }
+
+  .artist-dossier-seal {
+    bottom: 7%;
+    left: 33%;
+    width: 5.7rem;
+    height: 5.7rem;
+  }
+
+  .artist-dossier-seal strong {
+    font-size: 1.55rem;
+  }
+
+  .artist-dossier-footer {
+    padding-top: 0.7rem;
+    font-size: 0.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  .artist-dossier-footer-stats {
+    display: none;
+  }
+
+  .artist-dossier-scroll-link {
+    margin-left: auto;
+  }
+
+  .artist-drive-film-dialog {
+    width: calc(100vw - 1rem);
+    border-radius: 0.75rem;
+  }
+
+  .artist-drive-film-dialog-actions a {
+    display: none;
+  }
+}
+/* ================= About: pencil-sketch figures ================= */
+.sketch-figure {
+  isolation: isolate;
+}
+
+.sketch-figure > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sketch-base {
+  filter: grayscale(1) brightness(1.05);
+}
+
+.sketch-dodge {
+  filter: grayscale(1) invert(1) blur(2px);
+  mix-blend-mode: color-dodge;
+}
+
+.sketch-color {
+  will-change: clip-path, transform;
 }
