@@ -1,13 +1,25 @@
 {
-  "name": "Artist Nation",
+  "name": "Artist Nation Bangalore Event Management",
   "short_name": "Artist Nation",
-  "description": "Artist Nation creates corporate events, movie promotions, product launches, brand activations, and IT company outings in Bangalore and across India.",
+  "description": "Artist Nation Bangalore creates corporate events, movie promotions, product launches, brand activations, and IT company outings across India.",
+  "id": "/",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
+  "categories": ["business", "entertainment", "events"],
   "icons": [
+    {
+      "src": "/favicon-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
     {
       "src": "/icon-192.png",
       "sizes": "192x192",

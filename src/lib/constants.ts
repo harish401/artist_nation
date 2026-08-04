@@ -29,6 +29,12 @@ export const SITE_CONFIG = {
 } as const;
 
 export const SEO_KEYWORDS = [
+  "Artist Nation Bangalore",
+  "Artist Nation event management",
+  "Artist Nation India",
+  "Artist Nation corporate events",
+  "Artist Nation movie promotions",
+  "Artist Nation product launches",
   "event management",
   "events",
   "event conductors",

@@ -1,26 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Artist Nation">
-  <defs>
-    <radialGradient id="goldGlow" cx="36%" cy="24%" r="70%">
-      <stop offset="0" stop-color="#fff2bf"/>
-      <stop offset="0.42" stop-color="#c9a962"/>
-      <stop offset="1" stop-color="#6f5628"/>
-    </radialGradient>
-    <linearGradient id="edge" x1="80" y1="32" x2="432" y2="480">
-      <stop offset="0" stop-color="#f2deaa"/>
-      <stop offset="0.45" stop-color="#c9a962"/>
-      <stop offset="1" stop-color="#6f5628"/>
-    </linearGradient>
-    <linearGradient id="letterGold" x1="118" y1="138" x2="398" y2="376">
-      <stop offset="0" stop-color="#fff7df"/>
-      <stop offset="0.52" stop-color="#d9bd75"/>
-      <stop offset="1" stop-color="#8b7340"/>
-    </linearGradient>
-  </defs>
-  <rect width="512" height="512" rx="108" fill="#050505"/>
-  <rect x="22" y="22" width="468" height="468" rx="92" fill="none" stroke="url(#edge)" stroke-width="18"/>
-  <circle cx="386" cy="120" r="54" fill="url(#goldGlow)" opacity="0.78"/>
-  <path d="M72 374 168 138h62l96 236h-66l-15-42H153l-15 42H72Zm99-94h56l-28-80-28 80Z" fill="#fffaf0"/>
-  <path d="M296 374V138h56l72 119V138h58v236h-56l-72-119v119h-58Z" fill="#fffaf0"/>
-  <path d="M72 374 168 138h62l96 236h-66l-15-42H153l-15 42H72Zm99-94h56l-28-80-28 80Z" fill="url(#letterGold)" opacity="0.34"/>
-  <path d="M296 374V138h56l72 119V138h58v236h-56l-72-119v119h-58Z" fill="url(#letterGold)" opacity="0.34"/>
+  <rect width="512" height="512" rx="96" fill="#050505"/>
+  <path d="M104 310 203 118h54l-46 94 80-26 92 124h-70l-52-72-84 27-23 45h-50Z" fill="#fff"/>
+  <path d="M365 108c35 28 51 74 39 121-11 42-40 76-75 101 18-58 17-113-3-165l39-57Z" fill="#fff"/>
+  <text x="256" y="405" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="700" letter-spacing="28" text-anchor="middle">ARTIST</text>
+  <text x="256" y="458" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" letter-spacing="18" text-anchor="middle">NATION</text>
 </svg>

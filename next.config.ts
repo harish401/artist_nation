@@ -46,7 +46,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: "/media/:path*",
+        source: "/:asset(media|brand)/:path*",
         headers: [
           {
             key: "Cache-Control",

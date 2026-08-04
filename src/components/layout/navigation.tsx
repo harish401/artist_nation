@@ -19,6 +19,14 @@ export function Navigation() {
           aria-label="Artist Nation home"
         >
           <Image
+            src="/brand/artist-nation-logo-transparent.png"
+            alt=""
+            width={833}
+            height={766}
+            priority
+            className="creator-nav-mark"
+          />
+          <Image
             src="/brand/artist-nation-wordmark-transparent.png"
             alt=""
             width={673}

@@ -110,10 +110,14 @@ export function HeroSection() {
           style={{ opacity: contentOpacity, y: contentY }}
           className="relative z-10 flex h-full flex-col items-center justify-center text-center px-6"
         >
-          <h1 className="text-6xl md:text-8xl font-black text-white leading-tight">
-            Events, engineered
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.34em] text-white/70">
+            Artist Nation Bangalore
+          </p>
+          <h1 className="text-5xl font-black leading-tight text-white sm:text-6xl md:text-8xl">
+            Artist Nation events,
             <br />
-            for emotion.
+            engineered
+            <br className="sm:hidden" /> for emotion.
           </h1>
 
           <p className="mt-6 max-w-xl text-lg text-slate-300">

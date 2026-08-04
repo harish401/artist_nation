@@ -143,14 +143,21 @@ export function Footer() {
                   WhatsApp
                 </a>
               </li>
-              <li className="flex items-start gap-3 text-sm text-white/60">
-                <span className="liquid-glass border border-white/10 rounded-lg p-1.5 mt-0.5 flex-shrink-0">
-                  <MapPin size={14} className="text-gold" />
-                </span>
-                <span>
-                  {SITE_CONFIG.address.street},<br />
-                  {SITE_CONFIG.address.city}, {SITE_CONFIG.address.state} {SITE_CONFIG.address.postalCode}
-                </span>
+              <li>
+                <a
+                  href="https://maps.google.com/?q=Artist+Nation+Bangalore"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 text-sm text-white/60 hover:text-gold transition-colors duration-200"
+                >
+                  <span className="liquid-glass border border-white/10 rounded-lg p-1.5 mt-0.5 flex-shrink-0">
+                    <MapPin size={14} className="text-gold" />
+                  </span>
+                  <span>
+                    {SITE_CONFIG.address.street},<br />
+                    {SITE_CONFIG.address.city}, {SITE_CONFIG.address.state} {SITE_CONFIG.address.postalCode}
+                  </span>
+                </a>
               </li>
             </ul>
           </div>
