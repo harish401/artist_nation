@@ -3,11 +3,9 @@ import { Footer } from "@/components/layout/footer";
 import { getDefaultMetadata } from "@/lib/seo";
 import {
   ThinkDesignHero,
-  HeroSection,
   MultiCitySection,
   TrustedBySection,
   AboutSection,
-  CorporateEventsSection,
   ProductLaunchSection,
   MoviePromotionsSection,
   ServicesSection,
@@ -17,7 +15,6 @@ import {
   GallerySection,
   CTASection,
 } from "@/components/sections";
-import { MotionPreviewSection } from "@/components/sections/motion-preview";
 import { MarqueeSection } from "@/components/sections/marquee";
 
 export const metadata: Metadata = getDefaultMetadata();

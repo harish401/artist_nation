@@ -3,8 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Hexagon, ChevronRight, Menu, X, MapPin, Building2, Play } from "lucide-react";
-import { SITE_CONFIG } from "@/lib/constants";
+import { ChevronRight, Menu, X, Building2, Play } from "lucide-react";
 
 export function ThinkDesignHero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

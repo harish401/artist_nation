@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import { motion } from "framer-motion";
 import { brands } from "@/lib/data/brands";
 import { ScrollReveal } from "@/components/animations";
 

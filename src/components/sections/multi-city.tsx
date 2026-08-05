@@ -19,7 +19,7 @@ export function MultiCitySection() {
             Operating Across <span className="text-gold">Bangalore, Chennai & Cochin</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-gray-300">
-            Local execution teams, in-house technical production, and key artist managers stationed in South India's premier business capitals.
+            Local execution teams, in-house technical production, and key artist managers stationed in South India&apos;s premier business capitals.
           </p>
         </div>
 
