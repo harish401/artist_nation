@@ -19,20 +19,12 @@ export function Navigation() {
           aria-label="Artist Nation home"
         >
           <Image
-            src="/brand/artist-nation-logo-transparent.png"
-            alt=""
-            width={833}
-            height={766}
+            src="/AN White.png"
+            alt="Artist Nation"
+            width={180}
+            height={50}
             priority
-            className="creator-nav-mark"
-          />
-          <Image
-            src="/brand/artist-nation-wordmark-transparent.png"
-            alt=""
-            width={673}
-            height={188}
-            priority
-            className="creator-nav-logo"
+            className="h-8 sm:h-9 w-auto object-contain"
           />
           <span className="sr-only">Artist Nation</span>
           <span className="creator-nav-status" aria-hidden="true">Live</span>

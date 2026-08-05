@@ -96,11 +96,12 @@ export function MotionPreviewSection() {
               muted
               loop
               playsInline
-              preload="metadata"
-              className="h-full w-full object-cover"
+              preload="none"
+              className="hidden md:block h-full w-full object-cover"
             >
               <source src={bgVideo} type="video/mp4" />
             </video>
+            <div className="md:hidden absolute inset-0 bg-cover bg-center opacity-40" style={{ backgroundImage: "url('/image copy 5.png')" }} />
           </motion.div>
           {/* Cinematic overlays */}
           <div className="absolute inset-0 bg-[#0a0a0a]/70" aria-hidden="true" />
@@ -181,7 +182,7 @@ export function MotionPreviewSection() {
                       muted
                       loop
                       playsInline
-                      preload="metadata"
+                      preload="none"
                       className="absolute inset-0 h-full w-full object-cover opacity-40"
                     >
                       <source src={service.media} type="video/mp4" />
@@ -255,6 +256,7 @@ export function MotionPreviewSection() {
                   fill
                   sizes="(min-width: 768px) 60vw, 100vw"
                   className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                  loading="lazy"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />

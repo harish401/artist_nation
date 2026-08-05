@@ -30,11 +30,11 @@ export function Footer() {
         <div className="mb-12 text-center sm:mb-16">
           <Link href="/" className="mb-5 inline-flex justify-center" aria-label="Artist Nation home">
             <Image
-              src="/brand/artist-nation-logo-transparent.png"
-              alt=""
-              width={833}
-              height={766}
-              className="artist-footer-logo"
+              src="/AN White.png"
+              alt="Artist Nation"
+              width={220}
+              height={60}
+              className="h-10 sm:h-12 w-auto object-contain"
             />
           </Link>
           <p className="mx-auto max-w-md text-sm leading-relaxed text-white/50">
@@ -119,7 +119,15 @@ export function Footer() {
                   <span className="liquid-glass border border-white/10 rounded-lg p-1.5">
                     <Phone size={14} className="text-gold" />
                   </span>
-                  {SITE_CONFIG.phone}
+                  +91 9080100200
+                </a>
+              </li>
+              <li>
+                <a href="tel:+919539696969" className="flex items-center gap-3 text-sm text-white/60 hover:text-gold transition-colors duration-200">
+                  <span className="liquid-glass border border-white/10 rounded-lg p-1.5">
+                    <Phone size={14} className="text-gold" />
+                  </span>
+                  Philip: +91 9539696969
                 </a>
               </li>
               <li>
@@ -140,7 +148,7 @@ export function Footer() {
                   <span className="liquid-glass border border-white/10 rounded-lg p-1.5">
                     <MessageCircle size={14} className="text-gold" />
                   </span>
-                  WhatsApp
+                  WhatsApp (+91 9080100200)
                 </a>
               </li>
               <li>
@@ -164,12 +172,12 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
-          <p className="text-xs text-white/30">
-            &copy; {new Date().getFullYear()} {SITE_CONFIG.name}. All rights reserved.
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row text-center md:text-left">
+          <p className="text-xs text-white/40">
+            &copy; {new Date().getFullYear()} {SITE_CONFIG.name}. All rights reserved. &bull; Events | Entertainment | Brand Management
           </p>
-          <p className="text-xs text-white/30">
-            Premium Event Management &middot; Bangalore, India
+          <p className="text-xs font-semibold text-gold tracking-wide">
+            Bengaluru &bull; Kerala &bull; Chennai &bull; +91 9539696969 / +91 9080100200
           </p>
         </div>
       </div>

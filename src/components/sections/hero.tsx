@@ -78,7 +78,7 @@ export function HeroSection() {
             scale: circleScale,
             opacity: circleOpacity,
           }}
-          className="absolute inset-0 m-auto h-[40vmin] w-[40vmin] rounded-full bg-[#f24d29] will-change-transform"
+          className="absolute inset-0 m-auto h-[40vmin] w-[40vmin] rounded-full bg-[#0a6cff] will-change-transform"
         />
 
         {/* Massive Typography */}
@@ -93,7 +93,7 @@ export function HeroSection() {
             ST
           </motion.span>
 
-          <span className="text-[30vmin] font-black tracking-tighter leading-none text-[#f24d29]">
+          <span className="text-[30vmin] font-black tracking-tighter leading-none text-[#0a6cff]">
             A
           </span>
 
@@ -110,11 +110,11 @@ export function HeroSection() {
           style={{ opacity: contentOpacity, y: contentY }}
           className="relative z-10 flex h-full flex-col items-center justify-center text-center px-6"
         >
-          <p className="mb-4 text-xs font-bold uppercase tracking-[0.34em] text-white/70">
-            Artist Nation Bangalore
-          </p>
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#0a6cff]/30 bg-[#0a6cff]/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.3em] text-[#0a6cff] backdrop-blur-md">
+            Bangalore &bull; Chennai &bull; Cochin
+          </div>
           <h1 className="text-5xl font-black leading-tight text-white sm:text-6xl md:text-8xl">
-            Artist Nation events,
+            Events,
             <br />
             engineered
             <br className="sm:hidden" /> for emotion.
@@ -122,12 +122,12 @@ export function HeroSection() {
 
           <p className="mt-6 max-w-xl text-lg text-slate-300">
             From blueprint to live cue, Artist Nation architects
-            cinematic experiences that move rooms.
+            cinematic experiences across Bangalore, Chennai, and Cochin that move rooms.
           </p>
 
           <a
             href="#about"
-            className="mt-8 inline-flex items-center gap-2 bg-[#f24d29] px-6 py-3 text-sm font-semibold uppercase tracking-widest text-white hover:bg-[#c63d25] transition"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#0a6cff] px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-white shadow-[0_0_20px_rgba(10,108,255,0.4)] hover:bg-[#2563eb] hover:shadow-[0_0_30px_rgba(10,108,255,0.6)] transition-all duration-300"
           >
             Discover More
             <ArrowRight size={16} />

@@ -11,10 +11,11 @@ const itemReveal = {
 export function ServicesSection() {
   return (
     <section
-      id="services"
+      id="solutions"
       className="creator-services relative z-[3] scroll-mt-20 overflow-hidden rounded-t-[2.5rem] bg-[#f7f4ec] px-5 py-20 text-[#0c0c0c] sm:rounded-t-[3.2rem] sm:px-8 sm:py-24 md:px-10 md:py-32"
       aria-labelledby="services-heading"
     >
+      <div id="services" className="scroll-mt-24" />
       <div className="mx-auto max-w-6xl">
         <div className="mb-14 text-center sm:mb-20 md:mb-24">
           <p className="mb-4 text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-[#8b7340]">Services</p>

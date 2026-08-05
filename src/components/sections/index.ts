@@ -1,3 +1,5 @@
+export { ThinkDesignHero } from "./think-design-hero";
+export { MultiCitySection } from "./multi-city";
 export { HeroSection } from "./hero";
 export { TrustedBySection } from "./trusted-by";
 export { AboutSection } from "./about";

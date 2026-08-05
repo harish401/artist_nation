@@ -124,13 +124,15 @@ export function OptionWheel({
           const row = fontSize * spacing * 16;
           const angle = Math.max(-64, Math.min(64, distance * tilt));
           const radians = (angle * Math.PI) / 180;
-          const x = -Math.abs(Math.sin(radians)) * row * curve * 1.85;
-          const y = distance * row;
-          const opacity = Math.max(minOpacity, 1 - distAbs * fade);
+          const x = Number((-Math.abs(Math.sin(radians)) * row * curve * 1.85).toFixed(2));
+          const y = Number((distance * row).toFixed(2));
+          const opacity = Number(Math.max(minOpacity, 1 - distAbs * fade).toFixed(2));
+          const blurAmount = Number(Math.min(distAbs * blur, 5).toFixed(1));
+
           const itemStyle: CSSProperties = {
-            transform: `translate3d(${x}px, calc(${y}px - 50%), 0) rotate(${angle}deg)`,
+            transform: `translate3d(${x}px, calc(${y}px - 50%), 0) rotate(${Number(angle.toFixed(2))}deg)`,
             opacity,
-            filter: blur > 0 ? `blur(${Math.min(distAbs * blur, 5)}px)` : undefined,
+            filter: blur > 0 ? `blur(${blurAmount}px)` : undefined,
           };
 
           return (

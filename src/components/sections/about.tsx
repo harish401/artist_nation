@@ -20,26 +20,26 @@ const stats = [
 const pillars = [
   {
     number: "01",
-    title: "Concept & Design",
+    title: "Concept & 3D Design",
     description:
-      "Every event begins as a pencil sketch — moodboards, stage renders, and run-of-show blueprints drawn months before doors open.",
-    src: "/media/profile-stills/11-1124x1120.jpg",
-    alt: "Concept sketches and stage design renders for a corporate event",
+      "Every event begins as a pencil sketch — moodboards, 3D venue renders, and run-of-show blueprints drawn months before doors open.",
+    src: "/image copy 5.png",
+    alt: "Concept sketches, 3D renders, and stage production by Artist Nation",
   },
   {
     number: "02",
     title: "Production & Staging",
     description:
-      "Stagecraft, lighting, LED, and sound engineered in-house to the millimetre — precision timing that turns emotion into atmosphere.",
-    src: "/media/profile-stills/05-1179x679.jpg",
-    alt: "Stage production and lighting rig at an Artist Nation event",
+      "Stagecraft, LED walls, digital AV, and concert sound engineered in-house to the millimetre — turning emotion into atmosphere.",
+    src: "/image copy 6.png",
+    alt: "Grand arena stage production and lighting setup",
   },
   {
     number: "03",
     title: "Artists & Talent",
     description:
       "500+ artists and celebrities curated, negotiated, and managed end-to-end for launches, promotions, and brand moments.",
-    src: "/media/profile-stills/17-1317x851.jpg",
+    src: "/image copy 3.png",
     alt: "Live artist performing to a full audience",
   },
   {
@@ -47,7 +47,7 @@ const pillars = [
     title: "Show-Day Execution",
     description:
       "One crew, one cue sheet — flawless orchestration of thousands of guests from doors-open to the final encore.",
-    src: "/media/profile-stills/14-1119x1124.jpg",
+    src: "/image copy 4.png",
     alt: "Production team executing a live show",
   },
 ];
@@ -75,22 +75,26 @@ function SketchCard({
           fill
           sizes="(min-width: 768px) 40rem, 100vw"
           className="sketch-base object-cover"
+          loading="lazy"
+        />
+        {/* These decorative layers only needed on desktop */}
+        <Image
+          src={pillar.src}
+          alt=""
+          aria-hidden="true"
+          fill
+          sizes="(min-width: 768px) 40rem, 0px"
+          className="sketch-dodge object-cover hidden md:block"
+          loading="lazy"
         />
         <Image
           src={pillar.src}
           alt=""
           aria-hidden="true"
           fill
-          sizes="(min-width: 768px) 40rem, 100vw"
-          className="sketch-dodge object-cover"
-        />
-        <Image
-          src={pillar.src}
-          alt=""
-          aria-hidden="true"
-          fill
-          sizes="(min-width: 768px) 40rem, 100vw"
-          className="sketch-color object-cover"
+          sizes="(min-width: 768px) 40rem, 0px"
+          className="sketch-color object-cover hidden md:block"
+          loading="lazy"
         />
 
         {/* hand-drawn frame */}
@@ -150,12 +154,12 @@ export function AboutSection() {
 
       const mm = gsap.matchMedia();
 
-      mm.add("(prefers-reduced-motion: reduce)", () => {
+      mm.add("(prefers-reduced-motion: reduce), (max-width: 767px)", () => {
         gsap.set(drawPaths, { strokeDashoffset: 0 });
         gsap.set(colorLayers, { clipPath: "inset(0% 0% 0% 0%)", scale: 1 });
       });
 
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
+      mm.add("(prefers-reduced-motion: no-preference) and (min-width: 768px)", () => {
         /* ---------- Master intro timeline ---------- */
         split = SplitText.create(headlineRef.current, {
           type: "chars,lines",
@@ -326,21 +330,17 @@ export function AboutSection() {
         <div className="mt-14 grid gap-12 md:mt-20 md:grid-cols-[0.85fr_1.15fr] md:gap-16">
           {/* Sticky narrative column */}
           <div className="md:sticky md:top-28 md:self-start" data-about-copy>
-            <p className="text-base font-light leading-relaxed text-white/70 sm:text-lg">
-              Every unforgettable event begins as a pencil line on paper. For
-              over 15 years, Artist Nation has been Bangalore&apos;s premier
-              event management company — turning rough sketches into corporate
-              events, product launches, brand activations, and conferences
-              that audiences never forget.
+            <p className="text-base font-light leading-relaxed text-white/80 sm:text-lg">
+              Founded more than a decade ago, <span className="font-semibold text-white">Artist Nation</span> is a full-service agency specializing in Event Management, Brand Management, and Entertainment.
             </p>
-            <p className="mt-6 text-base font-light leading-relaxed text-white/70 sm:text-lg">
-              From Fortune 500 boardrooms to city-wide public spectacles, our
-              in-house team of producers, designers, and artist managers
-              obsesses over every detail between the first draft and the final
-              applause.{" "}
-              <span className="font-medium text-gold-light">
-                {SITE_CONFIG.tagline}
-              </span>
+            <p className="mt-4 text-base font-light leading-relaxed text-white/70 sm:text-lg">
+              Artist Nation is the brainchild of <span className="font-semibold text-gold">Mr. Cigi George</span> and <span className="font-semibold text-gold">Mr. Shaji Thomas Philip</span> — Event and Brand Gurus with a combined experience of 35 years across the Indian subcontinent and Middle East.
+            </p>
+            <p className="mt-4 text-base font-light leading-relaxed text-white/70 sm:text-lg">
+              From small start-up companies to large multinationals, our handpicked team delivers 3D graphic designing, LED walls, digital AV production design, stage design, 3D venue selection, and interactive ROI-driven audience engagement modules across Bangalore, Chennai, and Cochin.
+            </p>
+            <p className="mt-6 text-base font-medium leading-relaxed text-gold sm:text-lg">
+              {SITE_CONFIG.tagline}
             </p>
             <svg
               data-arrow

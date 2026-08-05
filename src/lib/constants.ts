@@ -2,12 +2,21 @@ export const SITE_CONFIG = {
   name: "Artist Nation",
   tagline: "We Don't Organize Events. We Create Experiences.",
   description:
-    "Bangalore's premier event management company for corporate events, product launches, movie promotions, brand activations, celebrity management, IT company outings, and luxury experiences across India.",
+    "Founded more than a decade ago by Mr. Cigi George and Mr. Shaji Thomas Philip with 35+ years of combined experience. Artist Nation is a full-service event, brand management, and entertainment agency operating across Bangalore, Chennai, and Cochin.",
   url: "https://artistnation.in",
   locale: "en_IN",
-  phone: "+91 98765 43210",
+  phone: "+91 9080100200",
+  secondaryPhone: "+91 9539696969",
+  contactPersons: [
+    { name: "Main Desk", phone: "+91 9080100200" },
+    { name: "Mr. Shaji Thomas Philip", phone: "+91 9539696969" },
+  ],
+  founders: [
+    { name: "Mr. Cigi George", role: "Co-Founder & Event Guru" },
+    { name: "Mr. Shaji Thomas Philip", role: "Co-Founder & Brand Guru" },
+  ],
   email: "hello@artistnation.in",
-  whatsapp: "+919876543210",
+  whatsapp: "+919080100200",
   address: {
     street: "MG Road, Brigade Road",
     city: "Bangalore",
@@ -15,6 +24,32 @@ export const SITE_CONFIG = {
     postalCode: "560001",
     country: "IN",
   },
+  offices: [
+    {
+      city: "Bangalore (HQ)",
+      address: "MG Road, Brigade Road, Bangalore, Karnataka 560001",
+      phone: "+91 9080100200",
+      email: "bangalore@artistnation.in",
+      mapUrl: "https://maps.google.com/?q=Artist+Nation+Bangalore",
+      isHQ: true,
+    },
+    {
+      city: "Chennai",
+      address: "Anna Salai, Nungambakkam, Chennai, Tamil Nadu 600034",
+      phone: "+91 9080100200",
+      email: "chennai@artistnation.in",
+      mapUrl: "https://maps.google.com/?q=Artist+Nation+Chennai",
+      isHQ: false,
+    },
+    {
+      city: "Cochin (Kochi)",
+      address: "MG Road, Marine Drive, Kochi, Kerala 682011",
+      phone: "+91 9539696969",
+      email: "cochin@artistnation.in",
+      mapUrl: "https://maps.google.com/?q=Artist+Nation+Cochin",
+      isHQ: false,
+    },
+  ],
   social: {
     instagram: "https://instagram.com/artistnation",
     linkedin: "https://linkedin.com/company/artistnation",
@@ -23,7 +58,7 @@ export const SITE_CONFIG = {
   stats: {
     events: 1000,
     brands: 200,
-    years: 15,
+    years: 35,
     artists: 500,
   },
 } as const;

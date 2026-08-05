@@ -48,9 +48,9 @@ export function GallerySection() {
     >
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 text-center sm:mb-16 md:mb-20">
-          <p className="mb-4 text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-gold">Projects</p>
+          <p className="mb-4 text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-gold">Selected Works</p>
           <h2 id="gallery-heading" className="creator-section-heading text-[clamp(3.5rem,13vw,10rem)]">
-            Event Worlds
+            Our Productions
           </h2>
         </div>
 
@@ -90,18 +90,16 @@ export function GallerySection() {
 
               <div className="grid gap-3 md:grid-cols-[0.42fr_0.58fr] md:gap-4">
                 <div className="creator-project-image min-h-40 sm:min-h-80 md:col-start-2 md:row-start-1 md:min-h-[clamp(20rem,35vw,34rem)]">
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    aria-label={project.motion.alt}
-                    className="absolute inset-0 h-full w-full object-cover"
-                  >
-                    <source src={project.motion.src} type="video/mp4" />
-                  </video>
-                  <span>Experience</span>
+                  <Image
+                    src={project.images[0].image}
+                    alt={project.images[0].alt}
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                  <span className="relative z-10">Experience</span>
                 </div>
 
                 <div className="grid gap-3 md:col-start-1 md:row-start-1 md:gap-4">
@@ -113,6 +111,7 @@ export function GallerySection() {
                         fill
                         sizes="(min-width: 768px) 36vw, 100vw"
                         className="object-cover"
+                        loading="lazy"
                       />
                       <span>{imageIndex === 0 ? "Production" : "Audience"}</span>
                     </div>
