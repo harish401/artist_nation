@@ -331,13 +331,13 @@ export function AboutSection() {
           {/* Sticky narrative column */}
           <div className="md:sticky md:top-28 md:self-start" data-about-copy>
             <p className="text-base font-light leading-relaxed text-white/80 sm:text-lg">
-              Founded more than a decade ago, <span className="font-semibold text-white">Artist Nation</span> is a full-service agency specializing in Event Management, Brand Management, and Entertainment.
+              Founded more than a decade ago, <span className="font-semibold text-white">Artist Nation Entertainments</span> is a full-service agency specializing in Event Management, Brand Management, and Entertainment.
             </p>
             <p className="mt-4 text-base font-light leading-relaxed text-white/70 sm:text-lg">
-              Artist Nation is the brainchild of <span className="font-semibold text-gold">Mr. Cigi George</span> and <span className="font-semibold text-gold">Mr. Shaji Thomas Philip</span> — Event and Brand Gurus with a combined experience of 35 years across the Indian subcontinent and Middle East.
+              <span className="font-semibold text-gold">Artist Nation Entertainments</span> is the brainchild of <span className="font-semibold text-gold">Mr. Cigi George</span> and <span className="font-semibold text-gold">Mr. S.T.Philip</span> with a combined experience of 35 years across the Indian subcontinent, Europe and Middle East.
             </p>
             <p className="mt-4 text-base font-light leading-relaxed text-white/70 sm:text-lg">
-              From small start-up companies to large multinationals, our handpicked team delivers 3D graphic designing, LED walls, digital AV production design, stage design, 3D venue selection, and interactive ROI-driven audience engagement modules across Bangalore, Chennai, and Cochin.
+              Our portfolio of clients range from new start-ups companies to large multinationals across the world. Our handpicked team delivers tailor made solutions in all aspects of event management. We specialise in corporate events, MICE, product launches, seminars, Exibitions, live entertainment and musical concerts.
             </p>
             <p className="mt-6 text-base font-medium leading-relaxed text-gold sm:text-lg">
               {SITE_CONFIG.tagline}

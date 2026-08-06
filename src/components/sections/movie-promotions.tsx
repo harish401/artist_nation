@@ -62,11 +62,11 @@ export function MoviePromotionsSection() {
             <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
               <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.892-11.892-1.99-.001-3.951-.5-5.688-1.448l-6.705 1.757zm5.547-4.103l.399.237c1.472.873 3.16 1.334 4.887 1.335 5.163 0 9.367-4.204 9.37-9.369 0-2.502-.974-4.855-2.747-6.627-1.772-1.773-4.127-2.748-6.629-2.748-5.166 0-9.37 4.204-9.373 9.37 0 1.796.516 3.53 1.493 5.035l.26.401-1.01 3.69 3.75-1.026z" />
             </svg>
-            +91 9539696969 / +91 9080100200
+            +91 94446 96130
           </span>
           <span className="hidden sm:inline text-gold/50">&bull;</span>
           <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-gray-300">
-            Bengaluru &bull; Kerala &bull; Chennai
+            Bengaluru &bull; Chennai &bull; Kochi
           </span>
         </div>
       </div>

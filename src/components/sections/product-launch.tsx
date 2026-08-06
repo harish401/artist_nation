@@ -16,7 +16,7 @@ export function ProductLaunchSection() {
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
   return (
-    <section id="product-launch" className="section-padding overflow-hidden" aria-labelledby="launch-heading">
+    <section id="launches" className="section-padding overflow-hidden scroll-mt-20" aria-labelledby="launch-heading">
       <ScrollReveal className="mx-auto mb-20 max-w-7xl text-center">
         <p className="mb-4 text-sm uppercase tracking-[0.3em] text-gold">Product Launch</p>
         <h2 id="launch-heading" className="heading-display text-3xl md:text-5xl lg:text-6xl">

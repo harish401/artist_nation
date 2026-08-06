@@ -32,9 +32,9 @@ export function Footer() {
             <Image
               src="/AN White.png"
               alt="Artist Nation"
-              width={220}
-              height={60}
-              className="h-10 sm:h-12 w-auto object-contain"
+              width={280}
+              height={80}
+              className="h-14 sm:h-20 w-auto object-contain transition-transform duration-300 hover:scale-105"
             />
           </Link>
           <p className="mx-auto max-w-md text-sm leading-relaxed text-white/50">
@@ -119,28 +119,25 @@ export function Footer() {
                   <span className="liquid-glass border border-white/10 rounded-lg p-1.5">
                     <Phone size={14} className="text-gold" />
                   </span>
-                  +91 9080100200
+                  +91 94446 96130
                 </a>
               </li>
               <li>
-                <a href="tel:+919539696969" className="flex items-center gap-3 text-sm text-white/60 hover:text-gold transition-colors duration-200">
-                  <span className="liquid-glass border border-white/10 rounded-lg p-1.5">
-                    <Phone size={14} className="text-gold" />
-                  </span>
-                  Philip: +91 9539696969
-                </a>
-              </li>
-              <li>
-                <a href={`mailto:${SITE_CONFIG.email}`} className="flex items-center gap-3 text-sm text-white/60 hover:text-gold transition-colors duration-200">
-                  <span className="liquid-glass border border-white/10 rounded-lg p-1.5">
-                    <Mail size={14} className="text-gold" />
-                  </span>
-                  {SITE_CONFIG.email}
-                </a>
+                <div className="flex flex-col gap-1 text-sm text-white/60">
+                  <a href="mailto:George@artistnation.in" className="flex items-center gap-3 hover:text-gold transition-colors duration-200">
+                    <span className="liquid-glass border border-white/10 rounded-lg p-1.5">
+                      <Mail size={14} className="text-gold" />
+                    </span>
+                    George@artistnation.in
+                  </a>
+                  <a href="mailto:Philip@artistnation.in" className="flex items-center gap-3 hover:text-gold transition-colors duration-200 pl-9">
+                    Philip@artistnation.in
+                  </a>
+                </div>
               </li>
               <li>
                 <a
-                  href={`https://wa.me/${SITE_CONFIG.whatsapp.replace(/[^0-9]/g, "")}`}
+                  href={`https://wa.me/${SITE_CONFIG.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-sm text-white/60 hover:text-gold transition-colors duration-200"
@@ -148,7 +145,7 @@ export function Footer() {
                   <span className="liquid-glass border border-white/10 rounded-lg p-1.5">
                     <MessageCircle size={14} className="text-gold" />
                   </span>
-                  WhatsApp (+91 9080100200)
+                  WhatsApp (+91 94446 96130)
                 </a>
               </li>
               <li>
@@ -158,13 +155,13 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-start gap-3 text-sm text-white/60 hover:text-gold transition-colors duration-200"
                 >
-                  <span className="liquid-glass border border-white/10 rounded-lg p-1.5 mt-0.5 flex-shrink-0">
+                  {/* <span className="liquid-glass border border-white/10 rounded-lg p-1.5 mt-0.5 flex-shrink-0">
                     <MapPin size={14} className="text-gold" />
                   </span>
                   <span>
                     {SITE_CONFIG.address.street},<br />
                     {SITE_CONFIG.address.city}, {SITE_CONFIG.address.state} {SITE_CONFIG.address.postalCode}
-                  </span>
+                  </span> */}
                 </a>
               </li>
             </ul>
@@ -177,7 +174,7 @@ export function Footer() {
             &copy; {new Date().getFullYear()} {SITE_CONFIG.name}. All rights reserved. &bull; Events | Entertainment | Brand Management
           </p>
           <p className="text-xs font-semibold text-gold tracking-wide">
-            Bengaluru &bull; Kerala &bull; Chennai &bull; +91 9539696969 / +91 9080100200
+            Bengaluru &bull; Chennai &bull; Kochi &bull; +91 94446 96130
           </p>
         </div>
       </div>

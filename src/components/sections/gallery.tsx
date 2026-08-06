@@ -9,7 +9,8 @@ const projects = [
     category: "Corporate",
     title: "Corporate Excellence",
     description: "Leadership summits, annual days, award nights, and premium internal brand moments built with cinematic stage direction.",
-    images: [galleryItems[0], galleryItems[4]],
+    mainImage: galleryItems[15], // /showcase/image copy 15.png (Resonance Executive Gala)
+    subImages: [galleryItems[0], galleryItems[7]], // /showcase/image.png, /showcase/image copy 7.png
     motion: {
       src: "/media/31d58427b9a831f5af3ea544c2bfbdcc.mp4",
       alt: "Animated corporate event crowd with cinematic red stage lighting",
@@ -20,7 +21,8 @@ const projects = [
     category: "Launch",
     title: "Product Reveal Theatre",
     description: "High-impact launch environments for technology, automotive, lifestyle, and ambitious product teams across India.",
-    images: [galleryItems[1], galleryItems[7]],
+    mainImage: galleryItems[14], // /showcase/image copy 14.png (Automotive Reveal Theatre)
+    subImages: [galleryItems[6], galleryItems[13]], // /showcase/image copy 6.png, /showcase/image copy 13.png
     motion: {
       src: "/media/Product-Lauches.mp4",
       alt: "Animated product launch stage with dramatic lighting and reveal screens",
@@ -31,7 +33,8 @@ const projects = [
     category: "Entertainment",
     title: "Movie Promotions",
     description: "Premieres, red carpets, fan energy, celebrity movement, and touring activations designed for public attention.",
-    images: [galleryItems[2], galleryItems[6]],
+    mainImage: galleryItems[17], // /showcase/image copy 17.png (Celebrity Red Carpet Premiere)
+    subImages: [galleryItems[3], galleryItems[16]], // /showcase/image copy 3.png, /showcase/image copy 16.png
     motion: {
       src: "/media/5478867180baced059a833f54fc6d14b.mp4",
       alt: "Animated entertainment event crowd with confetti and stage energy",
@@ -89,10 +92,11 @@ export function GallerySection() {
               </p>
 
               <div className="grid gap-3 md:grid-cols-[0.42fr_0.58fr] md:gap-4">
+                {/* Main Large Image on Right */}
                 <div className="creator-project-image min-h-40 sm:min-h-80 md:col-start-2 md:row-start-1 md:min-h-[clamp(20rem,35vw,34rem)]">
                   <Image
-                    src={project.images[0].image}
-                    alt={project.images[0].alt}
+                    src={project.mainImage.image}
+                    alt={project.mainImage.alt}
                     fill
                     sizes="(min-width: 768px) 50vw, 100vw"
                     className="object-cover transition-transform duration-500 hover:scale-105"
@@ -102,8 +106,9 @@ export function GallerySection() {
                   <span className="relative z-10">Experience</span>
                 </div>
 
+                {/* Two Sub-Images on Left */}
                 <div className="grid gap-3 md:col-start-1 md:row-start-1 md:gap-4">
-                  {project.images.slice(0, 2).map((item, imageIndex) => (
+                  {project.subImages.map((item, imageIndex) => (
                     <div key={item.id} className="creator-project-image h-28 sm:h-52 md:h-[clamp(9rem,16vw,14rem)]">
                       <Image
                         src={item.image}

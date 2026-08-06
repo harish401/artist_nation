@@ -29,7 +29,7 @@ export const services: Service[] = [
     longDescription:
       "From boardroom-polished galas to enterprise award ceremonies across South India and the Middle East.",
     icon: Building2,
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80",
+    image: "/showcase/image.png",
     keywords: ["corporate events", "event management"],
   },
   {
@@ -40,7 +40,7 @@ export const services: Service[] = [
     longDescription:
       "Strategic partner meets and incentive galas engineered for seamless executive engagement.",
     icon: Users,
-    image: "https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=1200&q=80",
+    image: "/showcase/image copy 7.png",
     keywords: ["distributor meets", "partner conferences"],
   },
   {
@@ -51,7 +51,7 @@ export const services: Service[] = [
     longDescription:
       "Dramatic 3D visual reveals, stage design, and digital AV production that turn launches into global headlines.",
     icon: Rocket,
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=80",
+    image: "/showcase/image copy 13.png",
     keywords: ["product launch", "stage reveal"],
   },
   {
@@ -62,7 +62,7 @@ export const services: Service[] = [
     longDescription:
       "Choreographed runways, high-fashion lighting rigs, and soundscapes designed for luxury fashion brands.",
     icon: Sparkles,
-    image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1200&q=80",
+    image: "/showcase/image copy 8.png",
     keywords: ["fashion shows", "runway production"],
   },
   {
@@ -73,7 +73,7 @@ export const services: Service[] = [
     longDescription:
       "End-to-end trade show management, 3D booth design, and interactive visitor experiences.",
     icon: Building2,
-    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200&q=80",
+    image: "/showcase/image copy 4.png",
     keywords: ["trade shows", "exhibition stalls"],
   },
   {
@@ -84,7 +84,7 @@ export const services: Service[] = [
     longDescription:
       "Pop-ups, mall activations, and experiential campaigns that build emotional connections with consumers.",
     icon: Sparkles,
-    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=1200&q=80",
+    image: "/showcase/image copy 5.png",
     keywords: ["brand management", "BTL activations"],
   },
   {
@@ -95,7 +95,7 @@ export const services: Service[] = [
     longDescription:
       "Curating and managing film stars, artists, influencers, and sports personalities for brand events.",
     icon: Star,
-    image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&q=80",
+    image: "/showcase/image copy 3.png",
     keywords: ["celebrity management", "artist booking"],
   },
   {
@@ -106,7 +106,7 @@ export const services: Service[] = [
     longDescription:
       "Electrifying live music, international DJ acts, and festival-grade sound and laser production.",
     icon: Film,
-    image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200&q=80",
+    image: "/showcase/image copy 11.png",
     keywords: ["DJ performances", "musical shows"],
   },
   {
@@ -117,7 +117,7 @@ export const services: Service[] = [
     longDescription:
       "Complete destination MICE logistics, resort retreats, and international delegation management.",
     icon: TreePalm,
-    image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1200&q=80",
+    image: "/showcase/image copy 10.png",
     keywords: ["MICE", "corporate retreats"],
   },
   {
@@ -128,7 +128,7 @@ export const services: Service[] = [
     longDescription:
       "Broadcast-grade multi-cam video production, live streaming, and high-fashion event photography.",
     icon: Film,
-    image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200&q=80",
+    image: "/showcase/image copy 9.png",
     keywords: ["digital cinematography", "photography"],
   },
 ];

@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Menu, X, Building2, Play } from "lucide-react";
+import { ChevronRight, Menu, X, Building2, Play, Film } from "lucide-react";
 
 export function ThinkDesignHero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -92,27 +93,31 @@ export function ThinkDesignHero() {
             <Image
               src="/AN White.png"
               alt="Artist Nation"
-              width={160}
-              height={48}
+              width={220}
+              height={64}
               priority
-              className="h-9 sm:h-11 w-auto object-contain"
+              className="h-12 sm:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105"
             />
           </a>
 
           {/* Desktop Nav Items */}
           <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold tracking-wider uppercase text-gray-300">
             <a href="#about" className="hover:text-gold transition-colors">
-              About
+              About Us
             </a>
-            <a href="#solutions" className="hover:text-gold transition-colors">
-              Services
+            <a href="#services" className="hover:text-gold transition-colors">
+              What We Do
             </a>
             <a href="#launches" className="hover:text-gold transition-colors">
-              Product Launches
+              Launches
             </a>
-            <a href="#movies" className="hover:text-gold transition-colors">
-              Movie Promotions
+            <a href="#gallery" className="hover:text-gold transition-colors">
+              Gallery
             </a>
+            <Link href="/videos" className="hover:text-gold transition-colors flex items-center gap-1.5 font-bold text-gold">
+              <Film className="h-3.5 w-3.5" />
+              Videos
+            </Link>
             <a
               href="#contact"
               className="group flex items-center gap-2 rounded-full bg-gradient-to-r from-[#c9a962] via-[#dfc480] to-[#b8954b] px-6 py-2.5 text-xs font-extrabold tracking-widest text-black shadow-[0_0_25px_rgba(201,169,98,0.5)] border border-gold/40 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_35px_rgba(201,169,98,0.8)] active:scale-95 ml-2"
@@ -138,7 +143,7 @@ export function ThinkDesignHero() {
             {/* Multi-City Location Pill */}
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.25em] text-gold backdrop-blur-md">
               <Building2 className="h-3.5 w-3.5 text-gold" />
-              Bangalore &bull; Chennai &bull; Cochin
+              Bengaluru &bull; Chennai &bull; Kochi
             </div>
 
             {/* Headline Wrapper with Negative Mask Inversion Effect */}
@@ -158,17 +163,17 @@ export function ThinkDesignHero() {
             </div>
 
             {/* Subtitle */}
-            <p className="max-w-[700px] text-sm sm:text-base md:text-xl text-gray-300 leading-relaxed mb-8 sm:mb-10 font-light">
-              Artist Nation is South India&apos;s premier event, brand management, and entertainment agency — architecting cinematic product launches, corporate summits, movie promotions, and live spectacles across Bangalore, Chennai, and Cochin.
+            <p className="max-w-2xl text-base sm:text-lg md:text-xl text-gray-300/90 font-medium mb-8 sm:mb-10">
+              We Don&apos;t Organize Events. We Create Experiences.
             </p>
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
               <a
-                href="#solutions"
+                href="#services"
                 className="w-full sm:w-auto rounded-full bg-[#c9a962] px-8 py-4 text-sm font-bold tracking-widest text-black shadow-[0_0_25px_rgba(201,169,98,0.4)] hover:bg-[#b0904d] hover:shadow-[0_0_35px_rgba(201,169,98,0.6)] transition-all duration-300 text-center active:scale-95"
               >
-                EXPLORE SOLUTIONS
+                EXPLORE SERVICES
               </a>
               <button
                 onClick={() => setVideoModalOpen(true)}
@@ -197,13 +202,12 @@ export function ThinkDesignHero() {
               >
                 <X className="h-6 w-6" />
               </button>
-              <div className="relative w-full max-w-5xl aspect-video rounded-2xl overflow-hidden border border-gold/30 shadow-[0_0_50px_rgba(201,169,98,0.3)]">
-                <iframe
-                  src="https://drive.google.com/file/d/1I04vmcBuLksiKL_GJXsG56tIXrCQf4b8/preview"
-                  allow="autoplay; encrypted-media; picture-in-picture"
-                  allowFullScreen
-                  className="h-full w-full border-0"
-                  title="Artist Nation Full Screen Showreel"
+              <div className="relative w-full max-w-5xl aspect-video rounded-2xl overflow-hidden border border-gold/30 shadow-[0_0_50px_rgba(201,169,98,0.3)] bg-black">
+                <video
+                  src="/videos/WhatsApp Video 2026-08-06 at 17.06.06.mp4"
+                  autoPlay
+                  controls
+                  className="h-full w-full object-contain"
                 />
               </div>
             </motion.div>
@@ -238,16 +242,23 @@ export function ThinkDesignHero() {
               </div>
 
               <nav className="mt-8 flex flex-col gap-6">
-                {["HOME", "SOLUTIONS", "LOCATIONS", "SERVICES", "ABOUT"].map((item, idx) => (
+                {[
+                  { label: "About Us", href: "#about" },
+                  { label: "What We Do", href: "#services" },
+                  { label: "Launches", href: "#launches" },
+                  { label: "Gallery", href: "#gallery" },
+                  { label: "Showreel Videos", href: "/videos" },
+                  { label: "Contact Us", href: "#contact" },
+                ].map((item, idx) => (
                   <a
-                    key={item}
-                    href={`#${item.toLowerCase()}`}
+                    key={item.label}
+                    href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className={`text-base sm:text-lg font-bold tracking-widest transition-colors ${
                       idx === 0 ? "text-gold" : "text-gray-300 hover:text-white"
                     }`}
                   >
-                    {item}
+                    {item.label}
                   </a>
                 ))}
               </nav>

@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { galleryItems } from "@/lib/data/gallery";
 
-const topRow = [...galleryItems.slice(0, 5), ...galleryItems.slice(0, 5), ...galleryItems.slice(0, 5)];
-const bottomRow = [...galleryItems.slice(4, 9), ...galleryItems.slice(4, 9), ...galleryItems.slice(4, 9)];
+const half = Math.ceil(galleryItems.length / 2);
+const topRow = [...galleryItems.slice(0, half), ...galleryItems.slice(0, half)];
+const bottomRow = [...galleryItems.slice(half), ...galleryItems.slice(half)];
 
 function MarqueeTile({ item, index }: { item: (typeof galleryItems)[number]; index: number }) {
   return (

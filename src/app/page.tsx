@@ -9,9 +9,8 @@ import {
   ProductLaunchSection,
   MoviePromotionsSection,
   ServicesSection,
-  ProcessSection,
+  // ProcessSection,
   WhyChooseUsSection,
-  TestimonialsSection,
   GallerySection,
   CTASection,
 } from "@/components/sections";
@@ -32,11 +31,11 @@ export default function Home() {
         {/* 3. Event Worlds (Showreel Marquee) */}
         <MarqueeSection />
 
-        {/* 4. Multi-City Regional Hubs: Bangalore, Chennai, Cochin */}
-        <MultiCitySection />
-
-        {/* 5. Brands & Client Logo Wall */}
+        {/* 4. Brands & Client Logo Wall */}
         <TrustedBySection />
+
+        {/* 5. Multi-City Regional Hubs: Bangalore, Chennai, Cochin */}
+        <MultiCitySection />
 
         {/* 6. Brand Story & Founder History */}
         <AboutSection />
@@ -48,10 +47,9 @@ export default function Home() {
         {/* 8. Service Stack & Expertise */}
         <ServicesSection />
 
-        {/* 9. Methodology, Trust & Reviews */}
-        <ProcessSection />
+        {/* 9. Methodology & Trust */}
+        {/* <ProcessSection /> */}
         <WhyChooseUsSection />
-        <TestimonialsSection />
 
         {/* 10. Final Call To Action */}
         <CTASection />
