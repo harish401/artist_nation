@@ -38,7 +38,7 @@ export function CTASection() {
         <div className="mt-10 inline-block md:mt-16">
           <div className="liquid-glass rounded-full border border-white/10 px-4 py-3 sm:px-8">
             <p className="text-xs leading-relaxed text-white/60 sm:text-sm">
-              Bangalore&apos;s premier event management company · India-wide delivery
+              Artist Nation premier event management company · India-wide delivery
             </p>
           </div>
         </div>
