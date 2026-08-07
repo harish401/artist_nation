@@ -140,12 +140,6 @@ export function ThinkDesignHero() {
         {/* Hero Body */}
         <main className="flex flex-1 items-center justify-center">
           <section className="mt-[-80px] flex flex-col items-center justify-center px-4 text-center">
-            {/* Multi-City Location Pill */}
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.25em] text-gold backdrop-blur-md">
-              <Building2 className="h-3.5 w-3.5 text-gold" />
-              Bengaluru &bull; Chennai &bull; Kochi
-            </div>
-
             {/* Headline Wrapper with Negative Mask Inversion Effect */}
             <div className="relative inline-flex items-center justify-center mb-4 sm:mb-6 w-full px-2 sm:px-8">
               <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight leading-[1.05] text-white">
@@ -182,6 +176,12 @@ export function ThinkDesignHero() {
                 <Play className="h-4 w-4 fill-current" />
                 WATCH SHOWREEL
               </button>
+            </div>
+
+            {/* Multi-City Location Pill (Positioned Below Action Buttons) */}
+            <div className="mt-8 sm:mt-10 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-5 py-2 text-xs font-bold uppercase tracking-[0.25em] text-gold backdrop-blur-md shadow-[0_0_20px_rgba(201,169,98,0.2)]">
+              <Building2 className="h-3.5 w-3.5 text-gold" />
+              Bengaluru &bull; Chennai &bull; Kochi
             </div>
           </section>
         </main>
