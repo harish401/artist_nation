@@ -80,17 +80,17 @@ export function TrustedBySection() {
 
                 <div className="flex-1 flex flex-col justify-between text-center sm:text-left w-full">
                   <div>
-                    <div className="flex items-center justify-center sm:justify-between gap-2">
+                    <h4 className="text-base sm:text-lg font-black text-white uppercase tracking-tight group-hover:text-gold transition-colors">
+                      {founder.name}
+                    </h4>
+
+                    <div className="mt-1 flex items-center justify-center sm:justify-start">
                       <span className="rounded bg-gold/10 px-2.5 py-0.5 text-[0.62rem] sm:text-[0.65rem] font-extrabold uppercase tracking-wider text-gold border border-gold/30">
                         {founder.role}
                       </span>
                     </div>
 
-                    <h4 className="text-base sm:text-lg font-black text-white uppercase tracking-tight mt-2 group-hover:text-gold transition-colors">
-                      {founder.name}
-                    </h4>
-
-                    <p className="text-xs text-gray-300 font-light leading-relaxed mt-2 line-clamp-3">
+                    <p className="text-xs text-gray-300 font-light leading-relaxed mt-2.5 line-clamp-3">
                       {founder.snippet}
                     </p>
                   </div>
@@ -145,8 +145,12 @@ export function TrustedBySection() {
                 </div>
 
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-widest text-gold">{selectedFounder.role}</span>
-                  <h3 className="text-xl sm:text-2xl font-black uppercase text-white mt-1">{selectedFounder.name}</h3>
+                  <h3 className="text-xl sm:text-2xl font-black uppercase text-white">{selectedFounder.name}</h3>
+                  <div className="mt-1.5">
+                    <span className="inline-block rounded bg-gold/10 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-gold border border-gold/30">
+                      {selectedFounder.role}
+                    </span>
+                  </div>
                   <p className="text-xs sm:text-sm text-gray-200 font-light leading-relaxed mt-3">{selectedFounder.bio}</p>
 
                   <div className="mt-4 flex flex-wrap gap-1.5">

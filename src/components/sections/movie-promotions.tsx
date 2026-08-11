@@ -15,7 +15,7 @@ export function MoviePromotionsSection() {
     >
       {isPlaying ? (
         <iframe
-          src="https://drive.google.com/file/d/1I04vmcBuLksiKL_GJXsG56tIXrCQf4b8/preview?autoplay=1"
+          src="https://drive.google.com/file/d/15-bxw1T9EKamSFytI05nCoQtiqikoIDH/preview?autoplay=1"
           allow="autoplay; encrypted-media; picture-in-picture"
           allowFullScreen
           className="absolute inset-0 h-full w-full border-0 object-cover"

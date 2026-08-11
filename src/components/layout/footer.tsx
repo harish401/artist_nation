@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { Phone, Mail, MessageCircle } from "lucide-react";
 import { FaWhatsapp, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { SITE_CONFIG } from "@/lib/constants";
 

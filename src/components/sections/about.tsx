@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
@@ -65,38 +64,10 @@ function SketchCard({
       className="sticky"
       style={{ top: `calc(5.5rem + ${index * 1.4}rem)` }}
     >
-      <figure
+      <div
         data-sketch-figure
-        className="sketch-figure relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#151515] sm:aspect-[4/3]"
+        className="relative overflow-hidden rounded-2xl border border-gold/30 bg-zinc-950/95 p-6 sm:p-8 backdrop-blur-xl shadow-[0_0_40px_rgba(0,0,0,0.8)] transition-all duration-300 hover:border-gold/60"
       >
-        <Image
-          src={pillar.src}
-          alt={pillar.alt}
-          fill
-          sizes="(min-width: 768px) 40rem, 100vw"
-          className="sketch-base object-cover"
-          loading="lazy"
-        />
-        {/* These decorative layers only needed on desktop */}
-        <Image
-          src={pillar.src}
-          alt=""
-          aria-hidden="true"
-          fill
-          sizes="(min-width: 768px) 40rem, 0px"
-          className="sketch-dodge object-cover hidden md:block"
-          loading="lazy"
-        />
-        <Image
-          src={pillar.src}
-          alt=""
-          aria-hidden="true"
-          fill
-          sizes="(min-width: 768px) 40rem, 0px"
-          className="sketch-color object-cover hidden md:block"
-          loading="lazy"
-        />
-
         {/* hand-drawn frame */}
         <svg
           data-sketch-frame
@@ -109,26 +80,25 @@ function SketchCard({
             d="M3 6 C 30 4, 70 5, 97 3 C 98 30, 96 70, 97 96 C 65 97, 35 95, 4 97 C 3 65, 5 35, 3 6 Z"
             pathLength="1"
             fill="none"
-            stroke="rgba(201,169,98,0.5)"
+            stroke="rgba(201,169,98,0.4)"
             strokeWidth="1.5"
             strokeLinecap="round"
             vectorEffect="non-scaling-stroke"
           />
         </svg>
 
-        {/* caption overlay */}
-        <figcaption className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/85 via-black/45 to-transparent px-6 pb-6 pt-16 sm:px-8 sm:pb-8">
-          <p className="text-[0.68rem] font-semibold tracking-[0.3em] text-gold">
-            {pillar.number}
-          </p>
-          <h3 className="mt-2 text-2xl font-black uppercase tracking-tight text-white sm:text-3xl">
+        <div className="relative z-10">
+          <span className="inline-block rounded-full bg-gold/10 px-3.5 py-1 text-[0.68rem] font-black tracking-[0.25em] text-gold border border-gold/30">
+            PILLAR {pillar.number}
+          </span>
+          <h3 className="mt-4 text-2xl sm:text-3xl font-black uppercase tracking-tight text-white">
             {pillar.title}
           </h3>
-          <p className="mt-2 max-w-md text-sm font-light leading-relaxed text-white/70">
+          <p className="mt-3 text-sm sm:text-base font-light leading-relaxed text-gray-300">
             {pillar.description}
           </p>
-        </figcaption>
-      </figure>
+        </div>
+      </div>
     </article>
   );
 }
@@ -145,10 +115,12 @@ export function AboutSection() {
       gsap.set(drawPaths, { strokeDasharray: 1, strokeDashoffset: 1 });
 
       const colorLayers = gsap.utils.toArray<HTMLImageElement>(".sketch-color");
-      gsap.set(colorLayers, {
-        clipPath: "inset(0% 0% 100% 0%)",
-        scale: 1.06,
-      });
+      if (colorLayers.length > 0) {
+        gsap.set(colorLayers, {
+          clipPath: "inset(0% 0% 100% 0%)",
+          scale: 1.06,
+        });
+      }
 
       let split: SplitText | null = null;
 
@@ -156,7 +128,9 @@ export function AboutSection() {
 
       mm.add("(prefers-reduced-motion: reduce), (max-width: 767px)", () => {
         gsap.set(drawPaths, { strokeDashoffset: 0 });
-        gsap.set(colorLayers, { clipPath: "inset(0% 0% 0% 0%)", scale: 1 });
+        if (colorLayers.length > 0) {
+          gsap.set(colorLayers, { clipPath: "inset(0% 0% 0% 0%)", scale: 1 });
+        }
       });
 
       mm.add("(prefers-reduced-motion: no-preference) and (min-width: 768px)", () => {
@@ -200,7 +174,7 @@ export function AboutSection() {
             0.9
           );
 
-        /* ---------- Card deck: sketch -> frame draw -> color flood ---------- */
+        /* ---------- Card deck: sketch -> frame draw ---------- */
         const cards = gsap.utils.toArray<HTMLElement>("[data-sketch-card]");
 
         cards.forEach((card, index) => {
@@ -223,24 +197,14 @@ export function AboutSection() {
               card.querySelector("[data-sketch-frame] path"),
               { strokeDashoffset: 0, duration: 1.0, ease: "power2.inOut" },
               0.2
-            )
-            .to(
-              card.querySelector(".sketch-color"),
-              {
-                clipPath: "inset(0% 0% 0% 0%)",
-                scale: 1,
-                duration: 1.3,
-                ease: "power3.inOut",
-              },
-              0.35
             );
 
           /* recede as the next card stacks over this one */
           const next = cards[index + 1];
           if (next) {
-            gsap.to(card.querySelector("figure"), {
+            gsap.to(card.querySelector("[data-sketch-figure]"), {
               scale: 0.94,
-              filter: "brightness(0.55)",
+              filter: "brightness(0.7)",
               transformOrigin: "center top",
               ease: "none",
               scrollTrigger: {
