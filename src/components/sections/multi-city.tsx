@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MapPin, Phone, Mail, ExternalLink, Building2, CheckCircle2 } from "lucide-react";
+import { MapPin, Phone, Mail, Building2, CheckCircle2 } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 
 export function MultiCitySection() {
@@ -195,16 +195,6 @@ export function MultiCitySection() {
                     <span>Local Celebrity & Artist Coordination</span>
                   </div>
                 </div>
-
-                <a
-                  href={activeOffice.mapUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-gold px-6 py-4 text-xs font-black uppercase tracking-widest text-black shadow-[0_0_25px_rgba(201,169,98,0.4)] transition-all duration-300 hover:bg-[#d8b972] hover:scale-[1.02] active:scale-95"
-                >
-                  View on Google Maps
-                  <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </a>
               </motion.div>
             </AnimatePresence>
           </div>
