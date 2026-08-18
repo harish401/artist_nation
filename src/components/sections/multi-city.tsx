@@ -41,70 +41,21 @@ export function MultiCitySection() {
                 className="w-full h-auto object-contain filter invert contrast-135 brightness-105 opacity-90 hover:opacity-100 transition-opacity duration-500"
               />
 
-              {/* Connecting Flight/Logistics Route Lines */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <path d="M 42 71 L 58 73" stroke="#c9a962" strokeWidth="1" strokeDasharray="2 2" className="animate-pulse" />
-                <path d="M 42 71 L 37 79" stroke="#c9a962" strokeWidth="1" strokeDasharray="2 2" className="animate-pulse" />
-                <path d="M 58 73 L 37 79" stroke="#c9a962" strokeWidth="1" strokeDasharray="2 2" className="animate-pulse" />
-              </svg>
-
-              {/* Bangalore Beacon (HQ) */}
-              <div
-                onClick={() => setActiveCityIndex(0)}
-                className={`absolute z-30 flex items-center gap-2.5 -translate-x-1/2 -translate-y-1/2 group cursor-pointer transition-all duration-300 ${activeCityIndex === 0 ? "scale-110 z-40" : "opacity-80 hover:opacity-100"
-                  }`}
-                style={{ top: "71%", left: "42%" }}
-              >
-                <div className="relative flex h-7 w-7 items-center justify-center">
-                  <span className={`absolute inline-flex h-full w-full rounded-full bg-gold ${activeCityIndex === 0 ? "animate-ping opacity-90" : "opacity-40"}`} />
-                  <span className="relative inline-flex h-4 w-4 rounded-full bg-gold shadow-[0_0_25px_#c9a962]" />
+              {/* Pan India Coverage Badge */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center justify-center text-center">
+                <div className="relative flex items-center justify-center mb-3">
+                  <span className="absolute inline-flex h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-gold/20 animate-ping opacity-75" />
+                  <span className="relative inline-flex h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-gradient-to-tr from-gold via-[#dfc480] to-gold shadow-[0_0_30px_rgba(201,169,98,0.8)] border border-white/40 items-center justify-center text-black font-black text-xs sm:text-sm">
+                    IN
+                  </span>
                 </div>
-                <div className={`rounded-xl border px-3 py-1.5 shadow-2xl backdrop-blur-md transition-all ${activeCityIndex === 0
-                  ? "border-gold bg-gold text-black shadow-[0_0_20px_rgba(201,169,98,0.5)]"
-                  : "border-gold/40 bg-black/90 text-white"
-                  }`}>
-                  <span className="text-[9px] font-black uppercase tracking-widest block">HQ</span>
-                  <span className="text-xs font-extrabold uppercase block whitespace-nowrap">Bangalore</span>
-                </div>
-              </div>
-
-              {/* Chennai Beacon */}
-              <div
-                onClick={() => setActiveCityIndex(1)}
-                className={`absolute z-30 flex items-center gap-2.5 -translate-x-1/2 -translate-y-1/2 group cursor-pointer transition-all duration-300 ${activeCityIndex === 1 ? "scale-110 z-40" : "opacity-80 hover:opacity-100"
-                  }`}
-                style={{ top: "73%", left: "58%" }}
-              >
-                <div className="relative flex h-6 w-6 items-center justify-center">
-                  <span className={`absolute inline-flex h-full w-full rounded-full bg-amber-400 ${activeCityIndex === 1 ? "animate-ping opacity-90" : "opacity-40"}`} />
-                  <span className="relative inline-flex h-3.5 w-3.5 rounded-full bg-amber-400 shadow-[0_0_20px_#f59e0b]" />
-                </div>
-                <div className={`rounded-xl border px-3 py-1.5 shadow-2xl backdrop-blur-md transition-all ${activeCityIndex === 1
-                  ? "border-amber-400 bg-amber-400 text-black shadow-[0_0_20px_rgba(245,158,11,0.5)]"
-                  : "border-amber-400/40 bg-black/90 text-white"
-                  }`}>
-                  <span className="text-[9px] font-black uppercase tracking-widest block">HUB</span>
-                  <span className="text-xs font-extrabold uppercase block whitespace-nowrap">Chennai</span>
-                </div>
-              </div>
-
-              {/* Cochin / Kochi Beacon */}
-              <div
-                onClick={() => setActiveCityIndex(2)}
-                className={`absolute z-30 flex items-center gap-2.5 -translate-x-1/2 -translate-y-1/2 group cursor-pointer transition-all duration-300 ${activeCityIndex === 2 ? "scale-110 z-40" : "opacity-80 hover:opacity-100"
-                  }`}
-                style={{ top: "79%", left: "37%" }}
-              >
-                <div className="relative flex h-6 w-6 items-center justify-center">
-                  <span className={`absolute inline-flex h-full w-full rounded-full bg-emerald-400 ${activeCityIndex === 2 ? "animate-ping opacity-90" : "opacity-40"}`} />
-                  <span className="relative inline-flex h-3.5 w-3.5 rounded-full bg-emerald-400 shadow-[0_0_20px_#10b981]" />
-                </div>
-                <div className={`rounded-xl border px-3 py-1.5 shadow-2xl backdrop-blur-md transition-all ${activeCityIndex === 2
-                  ? "border-emerald-400 bg-emerald-400 text-black shadow-[0_0_20px_rgba(16,185,129,0.5)]"
-                  : "border-emerald-400/40 bg-black/90 text-white"
-                  }`}>
-                  <span className="text-[9px] font-black uppercase tracking-widest block">HUB</span>
-                  <span className="text-xs font-extrabold uppercase block whitespace-nowrap">Cochin</span>
+                <div className="rounded-2xl border border-gold/50 bg-black/90 px-5 py-2.5 shadow-[0_0_30px_rgba(201,169,98,0.4)] backdrop-blur-xl">
+                  <span className="text-[0.65rem] sm:text-xs font-black uppercase tracking-[0.3em] text-gold block">
+                    NATIONWIDE OPERATIONS
+                  </span>
+                  <span className="text-sm sm:text-lg font-black uppercase tracking-wider text-white block mt-0.5">
+                    PAN INDIA COVERAGE
+                  </span>
                 </div>
               </div>
             </div>

@@ -3,6 +3,7 @@ export interface ProductLaunch {
   title: string;
   category: string;
   image: string;
+  video?: string;
   description: string;
   features: string[];
 }
@@ -13,16 +14,17 @@ export const productLaunches: ProductLaunch[] = [
     title: "Lamborghini Huracán BeyondCars Reveal",
     category: "Luxury Automotive",
     image: "/showcase/image copy 19.png",
+    video: "/videos/lamborghini_compressed.mp4",
     description: "High-octane luxury hypercar reveal with stage lighting, outdoor arena reveal, and VIP experience zones.",
     features: ["Outdoor Stagecraft", "Drive-Through Reveal", "VIP Media Zone"],
   },
   {
     id: "2",
     title: "Mankind Pharma Trade Exhibition Stall",
-    category: "Trade Show & Exhibition",
+    category: "Trade Show & Exhibitions",
     image: "/showcase/image copy 9.png",
-    description: "Custom 3D booth fabrication, LED display integration, and interactive BTL retail booth setup.",
-    features: ["3D Booth Fabrications", "LED Wall Rigging", "BTL Activations"],
+    description: "Custom 3D booth fabrication, LED display integration, and interactive BTL booth setup.",
+    features: ["3D Booth Fabrications", "Exhibition stalls", "Innovative designs"],
   },
   {
     id: "3",
@@ -34,7 +36,7 @@ export const productLaunches: ProductLaunch[] = [
   },
   {
     id: "4",
-    title: "Mercedes-Benz Executive Keynote",
+    title: "Mercedes Benz Financial services",
     category: "Corporate Conference",
     image: "/showcase/image copy 12.png",
     description: "Leadership keynote presentations, LED backdrop visuals, and executive corporate conference staging.",

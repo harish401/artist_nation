@@ -1,19 +1,26 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Volume2, VolumeX } from "lucide-react";
 import { productLaunches } from "@/lib/data/product-launches";
 import { ScrollReveal } from "@/components/animations";
 
 export function ProductLaunchSection() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [mutedItems, setMutedItems] = useState<Record<string, boolean>>({ "1": true });
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+
+  const toggleMute = (id: string) => {
+    setMutedItems((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
 
   return (
     <section id="launches" className="section-padding overflow-hidden scroll-mt-20" aria-labelledby="launch-heading">
@@ -28,35 +35,70 @@ export function ProductLaunchSection() {
       </ScrollReveal>
 
       <div ref={containerRef} className="mx-auto max-w-7xl space-y-32 px-6 lg:px-8">
-        {productLaunches.map((product, index) => (
-          <motion.article
-            key={product.id}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className={`flex flex-col items-center gap-12 lg:flex-row ${
-              index % 2 === 1 ? "lg:flex-row-reverse" : ""
-            }`}
-          >
-            <motion.div
-              style={{ y: index % 2 === 0 ? y : undefined }}
-              className="relative flex-1 perspective-1000"
+        {productLaunches.map((product, index) => {
+          const isMuted = mutedItems[product.id] ?? true;
+
+          return (
+            <motion.article
+              key={product.id}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              className={`flex flex-col items-center gap-12 lg:flex-row ${
+                index % 2 === 1 ? "lg:flex-row-reverse" : ""
+              }`}
             >
               <motion.div
-                whileHover={{ rotateY: 10, rotateX: -5, scale: 1.05 }}
-                transition={{ duration: 0.6 }}
-                className="relative overflow-hidden rounded-3xl preserve-3d glow-gold"
-                style={{ transformStyle: "preserve-3d" }}
+                style={{ y: index % 2 === 0 ? y : undefined }}
+                className="relative flex-1 perspective-1000 w-full"
               >
-                <Image
-                  src={product.image}
-                  alt={`${product.title} ${product.category} product launch event`}
-                  width={700}
-                  height={500}
-                  className="w-full object-cover"
-                />
+                <motion.div
+                  whileHover={{ rotateY: 8, rotateX: -4, scale: 1.03 }}
+                  transition={{ duration: 0.6 }}
+                  className="relative overflow-hidden rounded-3xl preserve-3d glow-gold group"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  {product.video ? (
+                    <div className="relative w-full aspect-[4/3] sm:aspect-video rounded-3xl overflow-hidden bg-black">
+                      <video
+                        src={product.video}
+                        autoPlay
+                        loop
+                        muted={isMuted}
+                        playsInline
+                        className="h-full w-full object-cover"
+                      />
+                      
+                      {/* Audio Toggle Button */}
+                      <button
+                        onClick={() => toggleMute(product.id)}
+                        className="absolute bottom-4 right-4 z-20 flex items-center gap-2 rounded-full border border-gold/40 bg-black/80 px-4 py-2 text-xs font-black uppercase tracking-wider text-gold backdrop-blur-md transition-all hover:bg-gold hover:text-black shadow-lg"
+                        aria-label={isMuted ? "Unmute Video Sound" : "Mute Video Sound"}
+                      >
+                        {isMuted ? (
+                          <>
+                            <VolumeX className="h-4 w-4" />
+                            Sound Off
+                          </>
+                        ) : (
+                          <>
+                            <Volume2 className="h-4 w-4 animate-pulse" />
+                            Sound On
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  ) : (
+                    <Image
+                      src={product.image}
+                      alt={`${product.title} ${product.category} product launch event`}
+                      width={700}
+                      height={500}
+                      className="w-full object-cover"
+                    />
+                  )}
+                </motion.div>
               </motion.div>
-            </motion.div>
 
             <div className="flex-1">
               <span className="text-sm uppercase tracking-wider text-gold">{product.category}</span>
@@ -72,7 +114,8 @@ export function ProductLaunchSection() {
               </ul>
             </div>
           </motion.article>
-        ))}
+        );
+      })}
       </div>
     </section>
   );

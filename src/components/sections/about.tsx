@@ -10,10 +10,10 @@ import { SITE_CONFIG } from "@/lib/constants";
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const stats = [
-  { value: SITE_CONFIG.stats.events, label: "Events Delivered" },
+  // { value: SITE_CONFIG.stats.events, label: "Events Delivered" },
   { value: SITE_CONFIG.stats.brands, label: "Brands Partnered" },
   { value: SITE_CONFIG.stats.years, label: "Years of Craft" },
-  { value: SITE_CONFIG.stats.artists, label: "Artists Managed" },
+  // { value: SITE_CONFIG.stats.artists, label: "Artists Managed" },
 ];
 
 const pillars = [

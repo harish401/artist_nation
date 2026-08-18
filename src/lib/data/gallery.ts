@@ -69,7 +69,7 @@ export const galleryItems: GalleryItem[] = [
     title: "Nykaa Beauty Bar Mall Activation",
     category: "Activation",
     image: "/showcase/image copy 8.png",
-    alt: "Nykaa Beauty Bar experiential BTL retail booth activation",
+    alt: "Nykaa Beauty Bar experiential BTL  booth activation",
   },
   {
     id: "10",

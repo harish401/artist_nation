@@ -14,7 +14,7 @@ export const brands: Brand[] = [
   { id: "7", name: "Porsche", logo: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/porsche.svg" },
   { id: "8", name: "ICICI Bank", logo: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/icicibank.svg" },
   { id: "9", name: "Land Rover", logo: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/landrover.svg" },
-  { id: "10", name: "Mercedes-Benz", logo: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/mercedes.svg" },
+  { id: "10", name: "Mercedes Benz", logo: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/mercedes.svg" },
   { id: "11", name: "Toyota", logo: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/toyota.svg" },
   { id: "12", name: "Renault", logo: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/renault.svg" },
   { id: "13", name: "Huawei", logo: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/huawei.svg" },

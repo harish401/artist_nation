@@ -5,10 +5,10 @@ import { Counter, ScrollReveal } from "@/components/animations";
 import { SITE_CONFIG } from "@/lib/constants";
 
 const counters = [
-  { value: SITE_CONFIG.stats.events, suffix: "+", label: "Events Delivered", icon: Calendar },
+  // { value: SITE_CONFIG.stats.events, suffix: "+", label: "Events Delivered", icon: Calendar },
   { value: SITE_CONFIG.stats.brands, suffix: "+", label: "Brand Partners", icon: Award },
   { value: SITE_CONFIG.stats.years, suffix: "+", label: "Years of Excellence", icon: Users },
-  { value: SITE_CONFIG.stats.artists, suffix: "+", label: "Artists Managed", icon: Mic2 },
+  // { value: SITE_CONFIG.stats.artists, suffix: "+", label: "Artists Managed", icon: Mic2 },
 ];
 
 export function WhyChooseUsSection() {

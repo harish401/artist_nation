@@ -14,42 +14,59 @@ export function ThinkDesignHero() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowIntro(false);
-    }, 1000);
+    }, 5000);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="relative min-h-screen w-full bg-[#09090b] text-white overflow-hidden font-sans selection:bg-[#c9a962] selection:text-black">
-      {/* 1-Second Full Screen Brand Logo Intro Animation */}
+      {/* 5-Second Full Screen Brand Logo Intro Animation */}
       <AnimatePresence>
         {showIntro && (
           <motion.div
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
             className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[#09090b]"
           >
             {/* Crimson Red Glow Aura */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-80 w-80 rounded-full bg-red-900/30 blur-[100px] pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-red-900/40 blur-[120px] pointer-events-none" />
             
             {/* Animated Logo */}
             <motion.div
               initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="relative z-10 flex flex-col items-center gap-4"
+              transition={{ duration: 1.0, ease: "easeOut" }}
+              className="relative z-10 flex flex-col items-center gap-5"
             >
               <Image
                 src="/AN White.png"
                 alt="Artist Nation"
-                width={240}
-                height={72}
+                width={260}
+                height={80}
                 priority
-                className="h-16 sm:h-20 w-auto object-contain drop-shadow-[0_0_35px_rgba(220,38,38,0.5)]"
+                className="h-20 sm:h-24 w-auto object-contain drop-shadow-[0_0_40px_rgba(220,38,38,0.6)]"
               />
-              <span className="text-xs font-bold uppercase tracking-[0.35em] text-red-500/90 animate-pulse">
+              <span className="text-xs sm:text-sm font-black uppercase tracking-[0.4em] text-red-500/90">
                 We Create Experiences
               </span>
+
+              {/* Sleek 5-Second Progress Line */}
+              <div className="w-48 sm:w-64 h-1 rounded-full bg-white/10 overflow-hidden mt-4 relative">
+                <motion.div
+                  initial={{ width: "0%" }}
+                  animate={{ width: "100%" }}
+                  transition={{ duration: 5.0, ease: "linear" }}
+                  className="h-full bg-gradient-to-r from-red-600 via-gold to-red-500 shadow-[0_0_15px_rgba(220,38,38,0.8)]"
+                />
+              </div>
+
+              <button
+                onClick={() => setShowIntro(false)}
+                className="mt-4 text-[0.65rem] font-extrabold uppercase tracking-widest text-gray-400 hover:text-gold transition-colors"
+              >
+                Skip Intro &rarr;
+              </button>
             </motion.div>
           </motion.div>
         )}
