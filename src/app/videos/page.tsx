@@ -21,7 +21,7 @@ const videoProductions = [
   },
   {
     id: "out-1-showreel",
-    title: "Conquer '25 Corporate Summit & Keynote Staging",
+    title: "Product Launch & Keynote Staging",
     category: "Corporate Summits",
     src: "/videos/out_1_compressed.mp4",
     poster: "/showcase/image copy 20.png",
@@ -93,8 +93,8 @@ export default function VideosPage() {
 
   const categories = ["All", "Luxury Automotive", "Corporate Summits", "Brand Activation", "Live Entertainment", "Master Showreel"];
 
-  const filteredVideos = selectedCategory === "All" 
-    ? videoProductions 
+  const filteredVideos = selectedCategory === "All"
+    ? videoProductions
     : videoProductions.filter(v => v.category === selectedCategory);
 
   return (
@@ -145,11 +145,10 @@ export default function VideosPage() {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`rounded-full px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all ${
-                  selectedCategory === cat
+                className={`rounded-full px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all ${selectedCategory === cat
                     ? "bg-gold text-black shadow-[0_0_20px_rgba(201,169,98,0.5)] scale-105"
                     : "border border-white/10 bg-white/5 text-gray-300 hover:border-gold/40 hover:text-white"
-                }`}
+                  }`}
               >
                 {cat}
               </button>

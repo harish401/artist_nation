@@ -52,10 +52,10 @@ export const productLaunches: ProductLaunch[] = [
   },
   {
     id: "6",
-    title: "Grand Outdoor Event Canopy & Staging",
+    title: "ACC Cements International dealer meet at Thailand",
     category: "Outdoor Staging & Event Setup",
     image: "/showcase/image copy 13.png",
-    description: "Large-scale outdoor tent fabrication, VIP seating, and venue staging for major public & corporate events.",
-    features: ["Canopy Fabrication", "VIP Lounge Setup", "Arena Management"],
+    description: "Large scale event setup in three cities , Public attractions .",
+    features: ["LED Wall stage setup", "International artist performance", "Large groups for tourist destination"],
   },
 ];

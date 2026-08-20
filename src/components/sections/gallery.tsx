@@ -9,8 +9,8 @@ const projects = [
     category: "Corporate",
     title: "Corporate Excellence",
     description: "Leadership summits, annual days, award nights, and premium internal brand moments built with cinematic stage direction.",
-    mainImage: galleryItems[15], // /showcase/image copy 15.png (Resonance Executive Gala)
-    subImages: [galleryItems[0], galleryItems[7]], // /showcase/image.png, /showcase/image copy 7.png
+    mainImage: galleryItems.find((item) => item.id === "16") || galleryItems[0],
+    subImages: [galleryItems.find((item) => item.id === "1") || galleryItems[1], galleryItems.find((item) => item.id === "21") || galleryItems[2]],
     motion: {
       src: "/media/31d58427b9a831f5af3ea544c2bfbdcc.mp4",
       alt: "Animated corporate event crowd with cinematic red stage lighting",
@@ -21,8 +21,8 @@ const projects = [
     category: "Launch",
     title: "Product Reveal Theatre",
     description: "High-impact launch environments for technology, automotive, lifestyle, and ambitious product teams across India.",
-    mainImage: galleryItems[14], // /showcase/image copy 14.png (Automotive Reveal Theatre)
-    subImages: [galleryItems[6], galleryItems[13]], // /showcase/image copy 6.png, /showcase/image copy 13.png
+    mainImage: galleryItems.find((item) => item.id === "19") || galleryItems[3],
+    subImages: [galleryItems.find((item) => item.id === "7") || galleryItems[4], galleryItems.find((item) => item.id === "11") || galleryItems[5]],
     motion: {
       src: "/media/Product-Lauches.mp4",
       alt: "Animated product launch stage with dramatic lighting and reveal screens",
@@ -33,8 +33,8 @@ const projects = [
     category: "Entertainment",
     title: "Movie Promotions",
     description: "Premieres, red carpets, fan energy, celebrity movement, and touring activations designed for public attention.",
-    mainImage: galleryItems[17], // /showcase/image copy 17.png (Celebrity Red Carpet Premiere)
-    subImages: [galleryItems[3], galleryItems[16]], // /showcase/image copy 3.png, /showcase/image copy 16.png
+    mainImage: galleryItems.find((item) => item.id === "18") || galleryItems[6],
+    subImages: [galleryItems.find((item) => item.id === "4") || galleryItems[7], galleryItems.find((item) => item.id === "8") || galleryItems[8]],
     motion: {
       src: "/media/5478867180baced059a833f54fc6d14b.mp4",
       alt: "Animated entertainment event crowd with confetti and stage energy",
@@ -94,33 +94,37 @@ export function GallerySection() {
               <div className="grid gap-3 md:grid-cols-[0.42fr_0.58fr] md:gap-4">
                 {/* Main Large Image on Right */}
                 <div className="creator-project-image min-h-40 sm:min-h-80 md:col-start-2 md:row-start-1 md:min-h-[clamp(20rem,35vw,34rem)]">
-                  <Image
-                    src={project.mainImage.image}
-                    alt={project.mainImage.alt}
-                    fill
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-500 hover:scale-105"
-                    loading="lazy"
-                  />
+                  {project.mainImage?.image && (
+                    <Image
+                      src={project.mainImage.image}
+                      alt={project.mainImage.alt || project.title}
+                      fill
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-500 hover:scale-105"
+                      loading="lazy"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                   <span className="relative z-10">Experience</span>
                 </div>
 
                 {/* Two Sub-Images on Left */}
                 <div className="grid gap-3 md:col-start-1 md:row-start-1 md:gap-4">
-                  {project.subImages.map((item, imageIndex) => (
-                    <div key={item.id} className="creator-project-image h-28 sm:h-52 md:h-[clamp(9rem,16vw,14rem)]">
-                      <Image
-                        src={item.image}
-                        alt={item.alt}
-                        fill
-                        sizes="(min-width: 768px) 36vw, 100vw"
-                        className="object-cover"
-                        loading="lazy"
-                      />
-                      <span>{imageIndex === 0 ? "Production" : "Audience"}</span>
-                    </div>
-                  ))}
+                  {project.subImages?.map((item, imageIndex) =>
+                    item?.image ? (
+                      <div key={item.id || `sub-${imageIndex}`} className="creator-project-image h-28 sm:h-52 md:h-[clamp(9rem,16vw,14rem)]">
+                        <Image
+                          src={item.image}
+                          alt={item.alt || project.title}
+                          fill
+                          sizes="(min-width: 768px) 36vw, 100vw"
+                          className="object-cover"
+                          loading="lazy"
+                        />
+                        <span>{imageIndex === 0 ? "Production" : "Audience"}</span>
+                      </div>
+                    ) : null
+                  )}
                 </div>
               </div>
             </article>
