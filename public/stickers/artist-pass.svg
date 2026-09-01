@@ -1,0 +1,28 @@
+<svg width="420" height="420" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="18" y="18" width="384" height="384" rx="78" fill="url(#paint0_radial)"/>
+  <rect x="18" y="18" width="384" height="384" rx="78" fill="url(#paint1_linear)" fill-opacity=".84"/>
+  <rect x="31" y="31" width="358" height="358" rx="66" stroke="#F4E3A6" stroke-width="6" stroke-dasharray="15 12"/>
+  <path d="M74 136C98 90 144 63 201 63c73 0 131 51 144 118" stroke="#F4E3A6" stroke-width="9" stroke-linecap="round"/>
+  <path d="M76 286c29 45 75 70 134 70 73 0 125-42 142-106" stroke="#D7E2EA" stroke-opacity=".72" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="318" cy="110" r="22" fill="#F4E3A6"/>
+  <circle cx="96" cy="313" r="12" fill="#D7E2EA" fill-opacity=".8"/>
+  <text x="210" y="147" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="900" letter-spacing="6" fill="#F4E3A6">ARTIST</text>
+  <text x="210" y="195" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="900" letter-spacing="-2" fill="#FFFFFF">NATION</text>
+  <text x="210" y="236" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="5" fill="#D7E2EA">EARLY ACCESS</text>
+  <rect x="94" y="262" width="232" height="44" rx="22" fill="#070707" fill-opacity=".72" stroke="#F4E3A6" stroke-opacity=".52"/>
+  <text x="210" y="291" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900" letter-spacing="3" fill="#F4E3A6">EVENT PASS</text>
+  <text x="210" y="336" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" letter-spacing="4" fill="#FFFFFF" fill-opacity=".78">BANGALORE + INDIA</text>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(128 94) rotate(49.4) scale(383.6)">
+      <stop stop-color="#7621B0"/>
+      <stop offset=".36" stop-color="#B600A8"/>
+      <stop offset=".73" stop-color="#1A1024"/>
+      <stop offset="1" stop-color="#050505"/>
+    </radialGradient>
+    <linearGradient id="paint1_linear" x1="54" y1="50" x2="365" y2="384" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2C2432"/>
+      <stop offset=".45" stop-color="#070707" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#BE4C00"/>
+    </linearGradient>
+  </defs>
+</svg>

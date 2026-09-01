@@ -1,8 +1,8 @@
 export const SITE_CONFIG = {
-  name: "Artist Nation",
+  name: "Artist Nation Entertainments",
   tagline: "We Don't Organize Events. We Create Experiences.",
   description:
-    "Founded more than a decade ago by Mr. Cigi George and Mr.S.T.Philip with a decade of excellence. Artist Nation is a full-service event, brand management, and entertainment agency with operations across India with offices at Bengaluru, Chennai and Kochi.",
+    "Founded more than a decade ago by Mr. Cigi George and Mr.S.T.Philip with a decade of excellence. Artist Nation Entertainments is a full-service event, brand management, and entertainment agency with operations across India with offices at Bengaluru, Chennai and Kochi.",
   url: "https://artistnation.in",
   locale: "en_IN",
   phone: "+91 94446 96130",
@@ -32,7 +32,7 @@ export const SITE_CONFIG = {
       phone: "+91 94446 96130",
       email: "George@artistnation.in",
       secondaryEmail: "Philip@artistnation.in",
-      mapUrl: "https://maps.google.com/?q=Artist+Nation+Bangalore",
+      mapUrl: "https://maps.google.com/?q=Artist+Nation+Entertainments+Bangalore",
       isHQ: true,
     },
     {
@@ -41,7 +41,7 @@ export const SITE_CONFIG = {
       phone: "+91 94446 96130",
       email: "George@artistnation.in",
       secondaryEmail: "Philip@artistnation.in",
-      mapUrl: "https://maps.google.com/?q=Artist+Nation+Chennai",
+      mapUrl: "https://maps.google.com/?q=Artist+Nation+Entertainments+Chennai",
       isHQ: false,
     },
     {
@@ -50,7 +50,7 @@ export const SITE_CONFIG = {
       phone: "+91 94446 96130",
       email: "George@artistnation.in",
       secondaryEmail: "Philip@artistnation.in",
-      mapUrl: "https://maps.google.com/?q=Artist+Nation+Cochin",
+      mapUrl: "https://maps.google.com/?q=Artist+Nation+Entertainments+Cochin",
       isHQ: false,
     },
   ],
@@ -68,12 +68,17 @@ export const SITE_CONFIG = {
 } as const;
 
 export const SEO_KEYWORDS = [
+  "Artist Nation Entertainments",
+  "Artist Nation Entertainments Bangalore",
+  "Artist Nation Entertainments event management",
+  "Artist Nation Entertainments India",
+  "Artist Nation Entertainments corporate events",
+  "Artist Nation Entertainments movie promotions",
+  "Artist Nation Entertainments product launches",
+  "Artist Nation",
   "Artist Nation Bangalore",
   "Artist Nation event management",
   "Artist Nation India",
-  "Artist Nation corporate events",
-  "Artist Nation movie promotions",
-  "Artist Nation product launches",
   "event management",
   "events",
   "event conductors",

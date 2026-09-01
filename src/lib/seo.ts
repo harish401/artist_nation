@@ -13,13 +13,17 @@ const serviceAreas = [
   "India",
 ];
 
-const logoImage = `${SITE_CONFIG.url}/brand/artist-nation-official-logo.png`;
-const ogImage = `${SITE_CONFIG.url}/og-image.svg`;
+const logoImage = `${SITE_CONFIG.url}/AN Black.png`;
+const ogImage = `${SITE_CONFIG.url}/AN Black.png`;
 const seoDescription =
-  "Artist Nation Bangalore is a 15+ year event management company for corporate events, movie promotions, product launches, brand activations, and IT company outings across India.";
+  "Artist Nation Entertainments is a 15+ year event management company for corporate events, movie promotions, product launches, brand activations, and IT company outings across India.";
 const brandAliases = [
+  "Artist Nation Entertainments",
+  "Artist Nation Entertainments Bangalore",
+  "Artist Nation Entertainments India",
+  "Artist Nation Entertainments Event Management",
+  "Artist Nation",
   "Artist Nation Bangalore",
-  "Artist Nation India",
   "Artist Nation Event Management",
   "Artist Nation Events",
 ];
@@ -33,7 +37,7 @@ function logoObject() {
     contentUrl: logoImage,
     width: 512,
     height: 512,
-    caption: "Artist Nation official logo",
+    caption: "Artist Nation Entertainments official logo",
   };
 }
 
@@ -89,7 +93,7 @@ export function getLocalBusinessSchema() {
   return {
     "@type": ["LocalBusiness", "EventVenue", "ProfessionalService"],
     "@id": `${SITE_CONFIG.url}/#localbusiness`,
-    name: "Artist Nation Bangalore Event Management",
+    name: "Artist Nation Entertainments Event Management",
     alternateName: brandAliases,
     description: seoDescription,
     logo: logoObject(),
@@ -97,7 +101,7 @@ export function getLocalBusinessSchema() {
     url: SITE_CONFIG.url,
     telephone: SITE_CONFIG.phone,
     email: SITE_CONFIG.email,
-    hasMap: "https://maps.google.com/?q=Artist+Nation+Bangalore",
+    hasMap: "https://maps.google.com/?q=Artist+Nation+Entertainments+Bangalore",
     keywords: serviceKeywords,
     priceRange: "$$$",
     address: postalAddress(),
@@ -133,7 +137,7 @@ export function getLocalBusinessSchema() {
         "@type": "Review",
         author: { "@type": "Person", name: "Corporate Event Director" },
         datePublished: "2026-01-15",
-        reviewBody: "Artist Nation produced an extraordinary 2,000-person tech summit in Bangalore with zero technical hiccups.",
+        reviewBody: "Artist Nation Entertainments produced an extraordinary 2,000-person tech summit in Bangalore with zero technical hiccups.",
         reviewRating: {
           "@type": "Rating",
           ratingValue: "5",
@@ -174,7 +178,7 @@ export function getOfferCatalogSchema() {
   return {
     "@type": "OfferCatalog",
     "@id": `${SITE_CONFIG.url}/#event-services`,
-    name: "Artist Nation Event Management Services",
+    name: "Artist Nation Entertainments Event Management Services",
     itemListElement: services.map((service) => ({
       "@type": "Offer",
       itemOffered: {
@@ -188,7 +192,7 @@ export function getEventSchema() {
   return {
     "@type": "BusinessEvent",
     "@id": `${SITE_CONFIG.url}/#early-access-demo`,
-    name: "Artist Nation Event Consultation Demo",
+    name: "Artist Nation Entertainments Event Consultation Demo",
     description:
       "Early-access consultation for corporate events, movie promotions, product launches, brand activations, and IT company outings in Bangalore and across India.",
     organizer: {
@@ -233,8 +237,8 @@ export function getWebPageSchema() {
     "@type": "WebPage",
     "@id": `${SITE_CONFIG.url}/#webpage`,
     url: SITE_CONFIG.url,
-    name: "Artist Nation Bangalore | Event Management Company in India",
-    headline: "Artist Nation Bangalore Event Management Company",
+    name: "Artist Nation Entertainments | Event Management Company in India",
+    headline: "Artist Nation Entertainments Event Management Company",
     description: seoDescription,
     isPartOf: {
       "@id": `${SITE_CONFIG.url}/#website`,
@@ -297,7 +301,7 @@ export function getAllSchemas() {
 }
 
 export function getDefaultMetadata() {
-  const title = "Artist Nation Bangalore | Event Management Company in India";
+  const title = "Artist Nation Entertainments | Event Management Company in India";
 
   return {
     applicationName: SITE_CONFIG.name,
@@ -317,16 +321,17 @@ export function getDefaultMetadata() {
     },
     icons: {
       icon: [
+        { url: "/AN Black.png", sizes: "any" },
         { url: "/favicon.ico", sizes: "any" },
         { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
         { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
         { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
         { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
-        { url: "/brand/artist-nation-official-logo.png", sizes: "512x512", type: "image/png" },
+        { url: "/AN Black.png", sizes: "512x512", type: "image/png" },
       ],
-      shortcut: "/favicon.ico",
+      shortcut: "/AN Black.png",
       apple: [
-        { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+        { url: "/AN Black.png", sizes: "180x180", type: "image/png" },
       ],
     },
     manifest: "/site.webmanifest",
@@ -342,7 +347,7 @@ export function getDefaultMetadata() {
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: "Artist Nation premium event management company in Bangalore",
+          alt: "Artist Nation Entertainments premium event management company in India",
         },
       ],
     },
@@ -375,7 +380,7 @@ export function getDefaultMetadata() {
       "application-name": SITE_CONFIG.name,
       "apple-mobile-web-app-title": SITE_CONFIG.name,
       "msapplication-TileColor": "#000000",
-      "msapplication-TileImage": "/icon-512.png",
+      "msapplication-TileImage": "/AN Black.png",
       "og:logo": logoImage,
       "og:see_also": SITE_CONFIG.social.instagram,
       "geo.region": "IN-KA",

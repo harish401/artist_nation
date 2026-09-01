@@ -38,7 +38,7 @@ export function Footer() {
             />
           </Link>
           <p className="mx-auto max-w-md text-sm leading-relaxed text-white/50">
-            Artist Nation premier event management company. Creating unforgettable
+            Artist Nation Entertainments premier event management company. Creating unforgettable
             experiences for Fortune 500 brands with 15+ years of production craft.
           </p>
 

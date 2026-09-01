@@ -60,13 +60,6 @@ export function ThinkDesignHero() {
                   className="h-full bg-gradient-to-r from-red-600 via-gold to-red-500 shadow-[0_0_15px_rgba(220,38,38,0.8)]"
                 />
               </div>
-
-              <button
-                onClick={() => setShowIntro(false)}
-                className="mt-4 text-[0.65rem] font-extrabold uppercase tracking-widest text-gray-400 hover:text-gold transition-colors"
-              >
-                Skip Intro &rarr;
-              </button>
             </motion.div>
           </motion.div>
         )}

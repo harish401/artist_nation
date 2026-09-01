@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Artist Nation">
+  <rect width="512" height="512" rx="96" fill="#050505"/>
+  <path d="M104 310 203 118h54l-46 94 80-26 92 124h-70l-52-72-84 27-23 45h-50Z" fill="#fff"/>
+  <path d="M365 108c35 28 51 74 39 121-11 42-40 76-75 101 18-58 17-113-3-165l39-57Z" fill="#fff"/>
+  <text x="256" y="405" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="700" letter-spacing="28" text-anchor="middle">ARTIST</text>
+  <text x="256" y="458" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" letter-spacing="18" text-anchor="middle">NATION</text>
+</svg>

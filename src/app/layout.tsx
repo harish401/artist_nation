@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   applicationName: metadataConfig.applicationName,
   title: {
     default: metadataConfig.title,
-    template: "%s | Artist Nation",
+    template: "%s | Artist Nation Entertainments",
   },
   description: metadataConfig.description,
   keywords: metadataConfig.keywords,
@@ -56,7 +56,7 @@ export default function RootLayout({
       <head>
         <meta
           name="description"
-          content="Artist Nation is South India's premier event management company for corporate galas, product launches, movie promotions, and live stage shows across Bangalore, Chennai, and Cochin."
+          content="Artist Nation Entertainments is South India's premier event management company for corporate galas, product launches, movie promotions, and live stage shows across Bangalore, Chennai, and Cochin."
         />
         {process.env.NODE_ENV === "production" && (
           <script

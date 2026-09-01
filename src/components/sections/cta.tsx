@@ -11,7 +11,7 @@ export function CTASection() {
         </h2>
 
         <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-white/60 sm:text-base md:mt-8 md:text-xl">
-          Artist Nation is opening limited demo consultations for brands planning corporate events,
+          Artist Nation Entertainments is opening limited demo consultations for brands planning corporate events,
           product launches, movie promotions, and premium team experiences.
         </p>
 
@@ -38,7 +38,7 @@ export function CTASection() {
         <div className="mt-10 inline-block md:mt-16">
           <div className="liquid-glass rounded-full border border-white/10 px-4 py-3 sm:px-8">
             <p className="text-xs leading-relaxed text-white/60 sm:text-sm">
-              Artist Nation premier event management company · India-wide delivery
+              Artist Nation Entertainments premier event management company · India-wide delivery
             </p>
           </div>
         </div>
